@@ -22,7 +22,7 @@
       </div>
 
       <div class="links">
-        <a href="https://github.com/cretueusebiu/laravel-vue-spa">github.com/cretueusebiu/laravel-vue-spa</a>
+        <a href="#">Develop by miladev</a>
       </div>
     </div>
   </div>
