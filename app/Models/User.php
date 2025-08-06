@@ -19,7 +19,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var string
      */
-    protected $table = 'dimaso_users';
+    protected $table = 'users';
 
     /**
      * The primary key for the table.

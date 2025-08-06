@@ -3,12 +3,12 @@
     <div class="col-lg-7 m-auto">
       <card :title="$t('login')">
         <form @submit.prevent="login" @keydown="form.onKeydown($event)">
-          <!-- Email -->
+          <!-- user_email -->
           <div class="mb-3 row">
             <label class="col-md-3 col-form-label text-md-end">{{ $t('email') }}</label>
             <div class="col-md-7">
-              <input v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }" class="form-control" type="email" name="email">
-              <has-error :form="form" field="email" />
+              <input v-model="form.user_email" :class="{ 'is-invalid': form.errors.has('user_email') }" class="form-control" type="user_email" name="user_email">
+              <has-error :form="form" field="user_email" />
             </div>
           </div>
 
@@ -70,7 +70,7 @@ export default {
 
   data: () => ({
     form: new Form({
-      email: '',
+      user_email: '',
       password: ''
     }),
     remember: false
