@@ -2,6 +2,8 @@
   <div class="dimaso-kit-79">
     <div id="page-wrapper" class="page-wrapper">
     <HeaderClient/>
+    <div id="particles-js"><canvas class="particles-js-canvas-el" width="3360" height="972" style="width: 100%; height: 100%;"></canvas></div>
+    <child />
     </div>
   </div>
 </template>
@@ -16,7 +18,6 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-      logoUrl: '/assets/images/dimaso_main_logo.webp'
     };
   },
   methods: {
@@ -27,5 +28,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-</style>
