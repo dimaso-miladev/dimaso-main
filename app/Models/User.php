@@ -6,72 +6,112 @@ use App\Notifications\ResetPassword;
 use App\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable,
         HasFactory;
 
-    #Model Relationship
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
-    public function profile(): HasOne
-    {
-        return $this->hasOne(Profile::class);
-    }
+    /**
+     * The primary key for the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'ID';
 
-    public function posts(): HasMany
-    {
-        return $this->hasMany(Post::class);
-    }
-    
-    public function avatar(): MorphOne
-    {
-        return $this->morphOne(Photo::class, 'photoable')->where('photo_type_code', 'A');
-    }
-    
+    /**
+     * Indicates if the model should be timestamped.
+     * This table does not have created_at and updated_at columns.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-
     protected $fillable = [
-        'user_name',
-        'email',
-        'password',
+        'user_login',
+        'user_pass',
+        'user_nicename',
+        'user_email',
+        'user_url',
+        'display_name',
+        'user_status',
     ];
-
-    protected $hidden = [
-        'id',
-        'password',
-        'remember_token',
-        'email_verified_at',
-        'created_at',
-        'updated_at',
-        'email'
-    ];
-
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    
 
     /**
-     * Get the oauth providers.
+     * The attributes that should be hidden for arrays or JSON.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @var array
      */
-    public function oauthProviders()
+    protected $hidden = [
+        'user_pass',
+        'user_activation_key',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'user_registered' => 'datetime',
+    ];
+
+    /**
+     * Override method to get the password for authentication.
+     * By default, Laravel looks for the 'password' column, but our table uses 'user_pass'.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
     {
-        return $this->hasMany(OAuthProvider::class);
+        return $this->user_pass;
+    }
+
+    /**
+     * Override method to get the email for notifications.
+     * This ensures that notifications (ResetPassword, VerifyEmail)
+     * are sent to the correct address in the 'user_email' column.
+     *
+     * @param \Illuminate\Notifications\Notification $notification
+     * @return string
+     */
+    public function routeNotificationForMail($notification)
+    {
+        return $this->user_email;
+    }
+
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 
     /**
@@ -93,21 +133,5 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     public function sendEmailVerificationNotification()
     {
         $this->notify(new VerifyEmail);
-    }
-
-    /**
-     * @return int
-     */
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
-    }
-
-    /**
-     * @return array
-     */
-    public function getJWTCustomClaims()
-    {
-        return [];
     }
 }
