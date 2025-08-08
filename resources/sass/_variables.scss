@@ -1,7 +1,10 @@
 // _variables.scss
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;700&display=swap');
+
 $primary:       #103CE7; 
 $secondary:     #FE9E30; 
+$secondary_bold:     #f98500; 
 $light:         #F7F9FE; 
 $dark:          #000229; 
 $white:         #FFFFFF; 
@@ -22,10 +25,10 @@ $custom-colors: (
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
-$font-family-sans-serif: "Hanken Grotesk", sans-serif; // Font chữ chính cho body
+$font-family-sans-serif: "Poppins", sans-serif; // Font chữ chính cho body
 $font-family-base:       $font-family-sans-serif;
 
-$headings-font-family:   "Archivo", sans-serif; // Font chữ cho các tiêu đề
+$headings-font-family:   "Poppins", sans-serif; // Font chữ cho các tiêu đề
 
 $font-size-base:         1.0625rem; // Tương đương 17px (17/16)
 $line-height-base:       1.76;      // Tương đương 30px (30/17)
