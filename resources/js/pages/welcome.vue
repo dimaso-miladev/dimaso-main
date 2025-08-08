@@ -4,31 +4,17 @@
       <div class="container-fluid">
         <div id="post-4854" class="post-4854 page type-page status-publish hentry">
           <div class="entry-content">
-            <!-- Thay thế wrapper chính từ elementor sang dimaso -->
             <div class="dimaso-builder-container dimaso-page-4854">
-              <!-- Đổi tên section thành tên ngữ nghĩa hơn -->
               <section class="dimaso-section dimaso-hero-section dimaso-section-full-width dimaso-section-stretched">
                 <div class="dimaso-container-inner dimaso-column-gap-none">
-                  <!-- Đổi tên column -->
                   <div class="dimaso-column dimaso-column-full">
                     <div class="dimaso-widget-wrapper">
-                      <!-- Widget ảnh nền trang trí -->
-                      <div class="dimaso-widget dimaso-image-widget rocket-shade">
-                        <div class="dimaso-widget-content">
-                          <img decoding="async"
-                            src="http://seoland.themeht.com/wp-content/uploads/2024/04/shape-small-1-1.png" title=""
-                            alt="" loading="lazy">
-                        </div>
-                      </div>
-                      <!-- Widget hero banner chính -->
                       <div class="dimaso-widget dimaso-hero-banner-widget">
                         <div class="dimaso-widget-content">
-                          <!-- Đổi tên lớp banner thành tên ngữ nghĩa hơn -->
                           <div class="hero-banner hero-banner-layout-1 overflow-hidden">
                             <div class="container">
                               <div class="row align-items-center">
                                 <div class="col-lg-6 col-md-12 order-lg-1">
-                                  <!-- Đổi tên lớp cho ảnh banner -->
                                   <div class="hero-banner-image animate__animated animate__fadeInRight animate__slow">
                                     <img decoding="async" class="img-fluid" :src="heroBanner" alt="Image">
                                   </div>
@@ -50,7 +36,6 @@
                                       collective of visionaries, fueled by passion and driven by creativity.</p>
                                   </div>
                                   <div class="d-sm-flex align-items-center animate__animated animate__fadeInUp animate__slow">
-                                    <!-- Đổi tên lớp cho button -->
                                     <a class="dimaso-btn dimaso-btn-primary" href="https://thewebphoenix.com/service/">
                                       <span>Get Started</span>
                                        <fa icon="arrow-alt-circle-right" />
@@ -59,7 +44,6 @@
                                 </div>
                               </div>
                             </div>
-                            <!-- Đổi tên lớp cho shape -->
                             <div class="hero-banner-shape">
                               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 288 288">
                                 <linearGradient id="bannerwave" x1="70.711%" x2="0%" y1="70.711%" y2="0%">
@@ -120,4 +104,3 @@ export default {
   })
 }
 </script>
-
