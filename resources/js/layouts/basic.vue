@@ -2,6 +2,8 @@
   <div class="dimaso-kit-79">
     <div id="page-wrapper" class="page-wrapper">
     <HeaderClient/>
+    <div id="particles-js"><canvas class="particles-js-canvas-el" width="3360" height="972" style="width: 100%; height: 100%;"></canvas></div>
+    <child />
     </div>
   </div>
 </template>
@@ -16,7 +18,6 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-      logoUrl: '/assets/images/dimaso_main_logo.webp'
     };
   },
   methods: {
@@ -28,53 +29,7 @@ export default {
 </script>
 
 <style lang="scss">
-.dimaso-kit-79 {
-  --e-global-color-primary: #6EC1E4;
-  --e-global-color-secondary: #54595F;
-  --e-global-color-text: #7A7A7A;
-  --e-global-color-accent: #61CE70;
-  --e-global-typography-primary-font-family: "Roboto";
-  --e-global-typography-primary-font-weight: 600;
-  --e-global-typography-secondary-font-family: "Roboto Slab";
-  --e-global-typography-secondary-font-weight: 400;
-  --e-global-typography-text-font-family: "Roboto";
-  --e-global-typography-text-font-weight: 400;
-  --e-global-typography-accent-font-family: "Roboto";
-  --e-global-typography-accent-font-weight: 500;
-}
 
-:root {
-  --themeht-secondary-color: #FE9E30;
-  --themeht-primary2-color: #103CE7;
-  --themeht-secondary2-color: #64E9FF;
-  --themeht-text-color: #191919;
-  --themeht-body-color: #606060;
-  --themeht-white-color: #FFFFFF;
-  --themeht-bg-dark-color: #000229;
-  --themeht-bg-light-color: #F7F9FE;
-  --themeht-border-light-color: #E1E1E1;
-  --themeht-rgba-color: rgba(255, 255, 255, 0.9);
-  --themeht-typography-body-font-family: "Hanken Grotesk", sans-serif;
-  --themeht-typography-secondary-font-family: "Archivo", sans-serif;
-  --logo-desktop-height: 60px;
-  --logo-tablet-height: 55px;
-  --logo-mobile-height: 50px;
-}
-
-body {
-  scroll-behavior: smooth;
-  font-family: var(--themeht-typography-body-font-family);
-  font-weight: normal;
-  font-style: normal;
-  font-size: 17px;
-  line-height: 30px;
-  color: var(--themeht-body-color);
-  overflow-x: hidden;
-}
-
-.page-wrapper {
-  overflow-x: hidden;
-}
 
 h1,
 h2,

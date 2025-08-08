@@ -1,6 +1,7 @@
-@import 'variables';
-
 @import '~bootstrap/scss/bootstrap';
+
+@import 'variables';
+@import 'global_site';
 @import '~sweetalert2/dist/sweetalert2';
 @import '~@fortawesome/fontawesome-svg-core/styles';
 
@@ -10,3 +11,5 @@
 @import 'elements/transitions';
 
 @import 'components/server-error';
+@import 'components/header_site';
+@import 'pages/home_page';
