@@ -1,18 +1,46 @@
-// Body
-$body-bg: #f7f9fb;
+// _variables.scss
 
-// Links
-$link-decoration: none;
-$link-hover-decoration: underline;
+$primary:       #103CE7; 
+$secondary:     #FE9E30; 
+$light:         #F7F9FE; 
+$dark:          #000229; 
+$white:         #FFFFFF; 
 
-// Cards
-$card-cap-bg: #fbfbfb;
-$card-border-color: #e8eced;
+// Màu sắc cho văn bản và nền
+$body-bg:       $light;                     
+$body-color:    #606060;                    
+$headings-color:#191919;                   
 
-// Borders
-$border-radius: .125rem;
-$border-radius-lg: .2rem;
-$border-radius-sm: .15rem;
 
-// Nav Pills
+$border-color:  #E1E1E1; 
+
+
+$custom-colors: (
+  "accent": #61CE70, // Dựa trên --e-global-color-accent
+  "secondary2": #64E9FF // Dựa trên --themeht-secondary2-color
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$font-family-sans-serif: "Hanken Grotesk", sans-serif; // Font chữ chính cho body
+$font-family-base:       $font-family-sans-serif;
+
+$headings-font-family:   "Archivo", sans-serif; // Font chữ cho các tiêu đề
+
+$font-size-base:         1.0625rem; // Tương đương 17px (17/16)
+$line-height-base:       1.76;      // Tương đương 30px (30/17)
+
+$headings-margin-bottom: 1.25rem;  // Tương đương 20px
+
+
+$link-color:              $headings-color;         
+$link-decoration:         none;                      
+$link-hover-color:        $secondary;               
+$link-hover-decoration:   none;                     
+
+$border-radius:           .375rem; 
+$border-radius-sm:        .25rem;
+$border-radius-lg:        .5rem;
+
+
 $nav-pills-border-radius: 0;

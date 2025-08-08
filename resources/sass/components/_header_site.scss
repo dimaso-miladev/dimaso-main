@@ -1,0 +1,296 @@
+/* ---  CSS HEADER --- */
+
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1200;
+  
+    @media (min-width: 1600px) {
+      .container-fluid {
+        padding: 0 10rem;
+      }
+    }
+  }
+  
+  #header-wrap {
+    position: relative;
+    z-index: 999;
+    padding: 20px 0 0;
+  
+    &.fixed-header {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      background-color: var(--themeht-white-color);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.07);
+      -webkit-box-shadow: 0px 25px 70px rgba(8, 10, 55, 0.08);
+      -moz-box-shadow: 0px 25px 70px rgba(8, 10, 55, 0.08);
+      box-shadow: 0px 25px 70px rgba(8, 10, 55, 0.08);
+      animation-name: smoothScroll;
+      animation-duration: 500ms;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      transition: all 500ms ease;
+    }
+  
+    @media (max-width: 992px) {
+      padding: 0;
+    }
+  }
+  
+  // Styles specifically for when the WordPress admin bar is visible
+  .admin-bar {
+    .header,
+    #header-wrap.fixed-header {
+      top: 30px;
+    }
+  
+    .main-nav .menu {
+      @media (max-width: 1200px) {
+        padding-top: 120px;
+      }
+    }
+  
+    .closepanel {
+      @media (max-width: 1200px) {
+        top: 60px;
+      }
+    }
+  
+    @media (max-width: 992px) {
+      .header,
+      #header-wrap.fixed-header {
+        top: 45px;
+      }
+    }
+  
+    @media (max-width: 767px) {
+      #header-wrap.fixed-header {
+        top: 0;
+      }
+    }
+  }
+  
+  @keyframes smoothScroll {
+    from { top: -100px; }
+    to { top: 0; }
+  }
+  
+  .logo img {
+    max-height: var(--logo-desktop-height);
+  
+    @media (max-width: 992px) {
+      max-height: var(--logo-tablet-height);
+    }
+  }
+  
+  .ht-navigation {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--themeht-white-color);
+    box-shadow: 0px 25px 70px rgba(8, 10, 55, 0.08);
+    padding: 12px 20px;
+    border-radius: 20px;
+  }
+  
+  .navigation-top {
+    margin: 0 auto;
+  
+    @media (max-width: 1200px) {
+      margin-left: auto;
+      margin-right: 20px;
+    }
+    @media (max-width: 992px) {
+      justify-content: end;
+    }
+    @media (max-width: 767px) {
+      margin-right: 0;
+    }
+  }
+  
+  .right-nav {
+    position: relative;
+  
+    .nav-item {
+      list-style-type: none;
+    }
+  }
+  
+  .main-nav {
+    li {
+      position: relative;
+      list-style-type: none;
+    }
+  
+    > ul > li {
+      margin: 0 15px;
+  
+      > a {
+        font-family: var(--themeht-typography-secondary-font-family);
+        font-weight: 500;
+        color: var(--themeht-text-color);
+        font-size: 17px;
+        line-height: 30px;
+        border-radius: 0;
+        position: relative;
+        display: block;
+  
+        @media (min-width: 992px) {
+          &:hover {
+            color: var(--themeht-secondary-color);
+          }
+        }
+      }
+      
+      // Active menu item styles
+      &.current-menu-item > a,
+      &.current-menu-parent > a {
+        @media (min-width: 992px) {
+          color: var(--themeht-secondary-color);
+        }
+      }
+  
+      @media (max-width: 1500px) {
+        margin: 0 10px;
+      }
+  
+      @media (max-width: 1200px) {
+        border-bottom: 1px solid var(--themeht-border-light-color);
+        margin: 0;
+        > a {
+          padding: 20px;
+          display: inline-block;
+          border: none;
+          line-height: 1;
+        }
+      }
+    }
+  
+    .menu {
+      @media (min-width: 1200px) {
+        flex-direction: row;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+      }
+      @media (max-width: 1200px) {
+        padding-left: 0;
+        padding-top: 80px;
+      }
+    }
+  
+    // Mobile menu styles
+    @media (max-width: 1200px) {
+      background-color: var(--themeht-white-color);
+      position: fixed;
+      top: 0;
+      right: -400px;
+      z-index: 1000;
+      width: 300px;
+      height: 100%;
+      padding: 0;
+      display: block;
+      transition: all 900ms ease;
+      transform: translateX(400px);
+      opacity: 0;
+  
+      &.menu-active {
+        right: 0px;
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+        overflow-y: scroll;
+        transition-delay: 600ms;
+      }
+    }
+  }
+  
+  .nav-menu-toggle {
+    box-shadow: none;
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 40px;
+    line-height: 1;
+    display: none;
+    color: var(--themeht-secondary-color);
+    margin-left: auto;
+    margin-right: 20px;
+  
+    @media (max-width: 1200px) {
+      display: block;
+      margin-right: 0;
+    }
+  }
+  
+  .closepanel {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  
+    i {
+      display: inline-block;
+      font-size: 40px;
+      color: var(--themeht-text-color);
+      line-height: 1;
+    }
+  
+    @media (max-width: 1200px) {
+      display: block;
+    }
+  }
+  
+  .ht-mobile-menu-bg {
+    display: none;
+  
+    @media (max-width: 1200px) {
+      display: block;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 0%;
+      height: 100%;
+      z-index: 99;
+      opacity: 0.8;
+      background: var(--themeht-secondary-color);
+      transform: translateX(101%);
+      transition: all 900ms ease;
+      transition-delay: 300ms;
+  
+      &.menu-active {
+        width: 100%;
+        visibility: visible;
+        transform: translateX(0%);
+      }
+    }
+  }
+  
+  .ht-nav-toggle {
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-left: 30px;
+  
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      border-bottom: none !important;
+    }
+  }
+  
+  .navbar-toggler.ht-toggler {
+    @media (max-width: 767px) {
+      margin-right: 30px;
+    }
+  }
+  
