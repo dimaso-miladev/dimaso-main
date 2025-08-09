@@ -36,7 +36,7 @@
                                       collective of visionaries, fueled by passion and driven by creativity.</p>
                                   </div>
                                   <div class="d-sm-flex align-items-center animate__animated animate__fadeInUp animate__slow">
-                                    <a class="dimaso-btn dimaso-btn-primary" href="https://thewebphoenix.com/service/">
+                                    <a class="dimaso-btn dimaso-btn-primary" href="#service/">
                                       <span>Get Started</span>
                                        <fa icon="arrow-alt-circle-right" />
                                     </a>

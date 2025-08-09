@@ -16,14 +16,17 @@ import {
 
 import {
   faEdge,
+  faFacebook,
+  faFacebookF,
   faGithub,
-  faGoogle
+  faGoogle,
+  faTelegram
 } from '@fortawesome/free-brands-svg-icons'
 
 config.autoAddCss = false
 
 library.add(
-  faUser, faLock, faSignOutAlt, faCog, faGithub,faGoogle, faEye, faEyeSlash, faArrowRight, faArrowAltCircleRight
+  faUser, faLock, faSignOutAlt, faCog, faGithub,faGoogle, faEye, faEyeSlash, faArrowRight, faArrowAltCircleRight, faFacebookF
 )
 
 Vue.component('Fa', FontAwesomeIcon)
