@@ -1,9 +1,9 @@
 @php
 $config = [
     'appName' => config('app.name'),
+    'siteUrl' => config('app.url'),
     'locale' => $locale = app()->getLocale(),
     'locales' => config('app.locales'),
-    'githubAuth' => config('services.github.client_id'),
 ];
 $appJs = mix('dist/js/app.js');
 $appCss = mix('dist/css/app.css');
@@ -13,7 +13,7 @@ $appCss = mix('dist/css/app.css');
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <link rel="icon" href="/assets/images/icon-dimaso.png" type="image/svg+xml">
   <title>{{ config('app.name') }}</title>
 
   <link rel="stylesheet" href="{{ (str_starts_with($appCss, '//') ? 'http:' : '').$appCss }}">
