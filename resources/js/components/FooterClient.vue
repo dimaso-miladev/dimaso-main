@@ -32,7 +32,7 @@
                   </div>
                   <div class="footer__content-menu">
                       <div class="footer-menu">
-                          <h3 class="footer-menu__title">Sản phẩm dịch vụ</h3>
+                          <h3 class="footer-menu__title">Thông tin</h3>
                           <div class="footer__line-container">
                               <div class="footer__line--long"></div>
                               <div class="footer__line-short"></div>
