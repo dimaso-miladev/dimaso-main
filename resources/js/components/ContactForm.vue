@@ -110,7 +110,7 @@ export default {
         const { data } = await this.form.post('/api/send-mail-contact')
 
         alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
-        this.form.reset(); // Xóa dữ liệu trên form
+        this.form.reset(); 
 
         const wrappers = document.querySelectorAll('.contact-form__input-wrapper');
         wrappers.forEach(wrapper => {

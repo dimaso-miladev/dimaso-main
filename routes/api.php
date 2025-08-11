@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\VerificationController;
-use App\Http\Controllers\Api\FormController;
+use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +50,6 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleCallback'])->name('oauth.callback');
 
     //
-    Route::post('send-mail-contact', [FormController::class, 'sendMailContact']);
+    Route::post('send-mail-contact', [ContactController::class, 'sendMailContact']);
 
 });
