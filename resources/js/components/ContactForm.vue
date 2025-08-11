@@ -6,7 +6,7 @@
             <div class="contact-form">
                 <img class="contact-form__background"
                     src="https://connectx.com.vn/wp-content/themes/astra-child/assets/imgs/imgBgForm.jpg" alt="Background Image">
-                
+
                 <div class="contact-form__content">
                     <h2 class="contact-form__title">
                         <span class="contact-form__title--highlight">Kết nối</span>
@@ -24,72 +24,63 @@
                             <p role="status" aria-live="polite" aria-atomic="true"></p>
                             <ul></ul>
                         </div>
-                        <form action="/case-study/#wpcf7-f6-o1" method="post" class="wpcf7-form init contact-form__form"
+                        <form @submit.prevent="sendContactMail" @keydown="form.onKeydown($event)" method="post" class="wpcf7-form init contact-form__form"
                             aria-label="Form liên hệ" novalidate="novalidate" data-status="init">
-                            <div style="display: none;">
-                                <input type="hidden" name="_wpcf7" value="6">
-                                <input type="hidden" name="_wpcf7_version" value="5.9.3">
-                                <input type="hidden" name="_wpcf7_locale" value="vi">
-                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f6-o1">
-                                <input type="hidden" name="_wpcf7_container_post" value="0">
-                                <input type="hidden" name="_wpcf7_posted_data_hash" value="">
-                            </div>
-                            
+
                             <div class="contact-form__group">
                                 <!-- ELEMENT: input-wrapper -->
                                 <div class="contact-form__input-wrapper">
                                     <img class="contact-form__icon" src="https://connectx.com.vn/wp-content/uploads/2024/04/icFormProfileFill.svg" alt="User Icon">
                                     <div class="contact-form__field-container">
                                         <span class="wpcf7-form-control-wrap" data-name="your_name">
-                                            <!-- Bỏ placeholder=" " khi dùng JS -->
-                                            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required contact-form__input" id="nameInput" aria-required="true" aria-invalid="false" value="" type="text" name="your_name">
+                                            <input v-model="form.your_name" :class="{ 'is-invalid': form.errors.has('your_name') }" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required contact-form__input" id="nameInput" aria-required="true" aria-invalid="false" type="text" name="your_name">
                                         </span>
                                         <label for="nameInput" class="contact-form__label">
                                             Họ và tên<span class="contact-form__required">*</span>
                                         </label>
                                     </div>
                                 </div>
-                                
+
                                 <div class="contact-form__input-wrapper">
                                     <img class="contact-form__icon" src="https://connectx.com.vn/wp-content/uploads/2024/04/icFormMail.svg" alt="Mail Icon">
                                     <div class="contact-form__field-container">
                                         <span class="wpcf7-form-control-wrap" data-name="your_mail">
-                                            <input size="40" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email contact-form__input" id="mailInput" aria-required="true" aria-invalid="false" value="" type="email" name="your_mail">
+                                            <input v-model="form.your_mail" :class="{ 'is-invalid': form.errors.has('your_mail') }" size="40" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email contact-form__input" id="mailInput" aria-required="true" aria-invalid="false" type="email" name="your_mail">
                                         </span>
                                         <label for="mailInput" class="contact-form__label">
                                             Email<span class="contact-form__required">*</span>
                                         </label>
                                     </div>
                                 </div>
-                                
+
                                 <div class="contact-form__input-wrapper">
                                     <img class="contact-form__icon" src="https://connectx.com.vn/wp-content/uploads/2024/04/icFormPhone.svg" alt="Phone Icon">
                                     <div class="contact-form__field-container">
                                         <span class="wpcf7-form-control-wrap" data-name="your_phone">
-                                            <input size="40" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel contact-form__input" id="phoneInput" aria-required="true" aria-invalid="false" value="" type="tel" name="your_phone">
+                                            <input v-model="form.your_phone" :class="{ 'is-invalid': form.errors.has('your_phone') }" size="40" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel contact-form__input" id="phoneInput" aria-required="true" aria-invalid="false" type="tel" name="your_phone">
                                         </span>
                                         <label for="phoneInput" class="contact-form__label">
                                             Số điện thoại<span class="contact-form__required">*</span>
                                         </label>
                                     </div>
                                 </div>
-                                
+
                                 <div class="contact-form__input-wrapper">
                                     <img class="contact-form__icon" src="https://connectx.com.vn/wp-content/uploads/2024/04/icFormMessage.svg" alt="Message Icon">
                                     <div class="contact-form__field-container">
                                         <span class="wpcf7-form-control-wrap" data-name="your_message">
-                                            <input size="40" class="wpcf7-form-control wpcf7-text contact-form__input" id="messageInput" aria-invalid="false" value="" type="text" name="your_message">
+                                            <input v-model="form.your_message" :class="{ 'is-invalid': form.errors.has('your_message') }" size="40" class="wpcf7-form-control wpcf7-text contact-form__input" id="messageInput" aria-invalid="false" type="text" name="your_message">
                                         </span>
                                         <label for="messageInput" class="contact-form__label">Lời nhắn</label>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="contact-form__submit-wrapper">
-                                <input class="dimaso-btn dimaso-btn-primary contact-form__submit-button" type="submit" value="Nhận tư vấn ngay">
+                                <input :disabled="form.busy" class="dimaso-btn dimaso-btn-primary contact-form__submit-button" type="submit" value="Nhận tư vấn ngay">
                                 <span class="wpcf7-spinner"></span>
                             </div>
-                            
+
                             <div class="wpcf7-response-output" aria-hidden="true"></div>
                         </form>
                     </div>
@@ -100,14 +91,40 @@
 </template>
 
 <script>
-// Bỏ <script setup> và dùng <script> thông thường
+import Form from 'vform'
 export default {
-  // Tên component (tùy chọn nhưng nên có)
   name: 'ContactForm',
 
-  // "onMounted" của Vue 3 tương đương với "mounted()" trong Vue 2
+  data: () => ({
+    form: new Form({
+      your_name: '',
+      your_mail: '',
+      your_phone: '',
+      your_message: ''
+    })
+  }),
+
+  methods: {
+    async sendContactMail () {
+      try {
+        const { data } = await this.form.post('/api/send-mail-contact')
+
+        alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+        this.form.reset(); // Xóa dữ liệu trên form
+
+        const wrappers = document.querySelectorAll('.contact-form__input-wrapper');
+        wrappers.forEach(wrapper => {
+            wrapper.classList.remove('is-active');
+        });
+
+      } catch (error) {
+        console.error('Đã có lỗi xảy ra:', error);
+        alert('Gửi liên hệ thất bại. Vui lòng thử lại sau.');
+      }
+    }
+  },
+
   mounted() {
-    // Logic JS của bạn sẽ được đặt ở đây
     const inputs = document.querySelectorAll('.contact-form__input');
 
     inputs.forEach(input => {
@@ -237,6 +254,12 @@ export default {
   z-index: 2;
 }
 
+.contact-form__input.is-invalid {
+}
+.contact-form__input-wrapper .is-invalid {
+}
+/* NEW CODE END */
+
 .contact-form__label {
   pointer-events: none;
   position: absolute;
@@ -284,7 +307,7 @@ export default {
     max-width: var(--width-container);
     margin-left: auto;
     margin-right: auto;
-    height: 500px; 
+    height: 500px;
     margin-bottom: 2rem;
   }
   .form-section__content {
