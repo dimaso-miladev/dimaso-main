@@ -77,19 +77,24 @@
                 </div>
               </section>
             </div>
+              <ContactForm/>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import ContactForm from '~/components/ContactForm';
 
 export default {
   layout: 'basic',
-
+  components: {
+    ContactForm
+  },
   metaInfo() {
     return { title: this.$t('home') }
   },

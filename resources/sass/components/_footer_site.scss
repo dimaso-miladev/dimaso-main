@@ -39,7 +39,9 @@ $widthImgConnectFlexibility: 280px;
     padding: 1.75rem 0 3.5rem;
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
-
+    > .footer__content-logo{
+      width: 50%;
+    }
     // Tailwind-style spacing for direct children
     > :not([hidden]) ~ :not([hidden]) {
       --tw-space-y-reverse: 0;
@@ -85,7 +87,9 @@ $widthImgConnectFlexibility: 280px;
   }
 
   &-logo-img {
-    height: 2.75rem;
+    width: 4.5rem;
+    width: 13.5rem;
+    filter: grayscale(100%) brightness(500%);
   }
 
   &-menu {
