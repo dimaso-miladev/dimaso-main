@@ -16,12 +16,12 @@
                               <div class="row align-items-center">
                                 <div class="col-lg-6 col-md-12 order-lg-1">
                                   <div class="hero-banner-image animate__animated animate__fadeInRight animate__slow">
-                                    <img decoding="async" class="img-fluid" :src="heroBanner" alt="Image">
+                                    <img decoding="async" class="img-fluid" :src="heroBanner" :alt="$t('home_content.hero.alt')">
                                   </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                   <div class="animate__animated animate__shakeX animate__slow">
-                                    <h6>Welcome To <span></span>
+                                    <h6>{{ $t('home_content.hero.welcome') }} <span></span>
                                       <span></span>
                                       <span></span>
                                       <span></span>
@@ -31,13 +31,11 @@
                                     <span>DIMASO</span>
                                   </h1>
                                   <div class="mb-5 animate__animated animate__zoomIn animate__slow">
-                                    <p>At Dimaso, we’re not just a team of developers and designers; we’re
-                                      digital artisans crafting experiences that transcend the ordinary. We’re a
-                                      collective of visionaries, fueled by passion and driven by creativity.</p>
+                                    <p>{{ $t('home_content.hero.description') }}</p>
                                   </div>
                                   <div class="d-sm-flex align-items-center animate__animated animate__fadeInUp animate__slow">
                                     <a class="dimaso-btn dimaso-btn-primary" href="#service/">
-                                      <span>Get Started</span>
+                                      <span>{{ $t('home_content.hero.buttonText') }}</span>
                                        <fa icon="arrow-alt-circle-right" />
                                     </a>
                                   </div>
@@ -82,7 +80,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 

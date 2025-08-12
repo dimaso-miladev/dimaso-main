@@ -17,7 +17,6 @@
   "confirm_password": "Xác nhận mật khẩu",
   "name": "Tên",
   "toggle_navigation": "Chuyển đổi điều hướng",
-  "home": "Trang chủ",
   "you_are_logged_in": "Bạn đã đăng nhập!",
   "reset_password": "Đặt lại mật khẩu",
   "send_password_reset_link": "Gửi liên kết đặt lại mật khẩu",
@@ -35,5 +34,74 @@
   "send_verification_link": "Gửi liên kết xác minh",
   "resend_verification_link": "Gửi lại liên kết xác minh?",
   "failed_to_verify_email": "Xác minh email thất bại.",
-  "verify_email_address": "Chúng tôi đã gửi email cho bạn với liên kết xác minh."
+  "verify_email_address": "Chúng tôi đã gửi email cho bạn với liên kết xác minh.",
+  "home": "Trang chủ",
+  "phone_number": "Số điện thoại",
+  "header": {
+    "logoAlt": "Logo Dimaso",
+    "nav": {
+      "home": "Trang chủ",
+      "about": "Về chúng tôi",
+      "services": "Dịch vụ",
+      "packages": "Bảng giá",
+      "portfolio": "Dự án",
+      "blogs": "Bài viết",
+      "contact": "Liên hệ"
+    }
+  },
+  "footer": {
+    "content": {
+      "companyDescription": "Một sản phẩm của CÔNG TY TNHH TRUYỀN THÔNG SỐ DIMASO chuyên cung cấp dịch vụ digital marketing chuyên nghiệp",
+      "taxCode": "Mã số thuế",
+      "address": "Địa chỉ",
+      "email": "Email"
+    },
+    "menu": {
+      "infoTitle": "Thông tin",
+      "about": "Giới thiệu",
+      "caseStudy": "Case Study",
+      "blogs": "Blogs",
+      "contact": "Liên hệ",
+      "connectTitle": "Kết nối"
+    },
+    "copyright": {
+      "text": "@ Copyright 2025 All Rights Reserved",
+      "terms": "Điều kiện & Cam kết",
+      "privacy": "Điều khoản bảo mật"
+    }
+  },
+  "home_content": {
+    "hero": {
+      "alt": "Ảnh banner chính Dimaso",
+      "welcome": "Welcome To",
+      "description": "Tại Dimaso, chúng tôi không chỉ giúp bạn kết nối với đúng đối tượng khách hàng mục tiêu thông qua các chiến dịch digital marketing thông minh, mà còn nuôi dưỡng mối quan hệ đó bằng những trải nghiệm số giá trị và cá nhân hóa.",
+      "buttonText": "Bắt đầu ngay"
+    }
+  },
+  "contactForm": {
+    "title": "{connect} khách hàng - {increase} doanh số",
+    "titleConnect": "Kết nối",
+    "titleIncrease": "Gia tăng",
+    "subtitle": "Gia tăng doanh số với giải pháp Digital Marketing của Dimaso",
+    "ariaLabel": "Form liên hệ",
+    "fields": {
+      "name": "Họ và tên",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "message": "Lời nhắn"
+    },
+    "submitButton": "Nhận tư vấn ngay",
+    "alerts": {
+      "success": "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.",
+      "error": "Gửi liên hệ thất bại. Vui lòng thử lại sau.",
+      "consoleError": "Đã có lỗi xảy ra:"
+    },
+    "alt": {
+      "background": "Ảnh nền form",
+      "userIcon": "Biểu tượng người dùng",
+      "mailIcon": "Biểu tượng thư",
+      "phoneIcon": "Biểu tượng điện thoại",
+      "messageIcon": "Biểu tượng tin nhắn"
+    }
+  }
 }
