@@ -83,9 +83,16 @@ return [
     'locale' => 'en',
 
     'locales' => [
-        'en' => 'EN',
-        'vi' => 'VI'
+        'en' => [
+            'name' => 'English',
+            'flag' => 'https://viblo.asia/images/en-flag-32x48.png'
+        ],
+        'vi' => [
+            'name' => 'Tiếng Việt',
+            'flag' => 'https://viblo.asia/images/vi-flag-32x48.png'
+        ]
     ],
+
 
     /*
     |--------------------------------------------------------------------------

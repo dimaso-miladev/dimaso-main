@@ -1,7 +1,8 @@
 <template>
   <div>
+    <!-- Thêm class binding `:class="{ 'fixed-header': isHeaderFixed }"` vào #header-wrap -->
     <header id="site-header" class="header">
-      <div id="header-wrap">
+      <div id="header-wrap" :class="{ 'fixed-header': isHeaderFixed }">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
@@ -54,6 +55,7 @@ export default {
     return {
       isMenuOpen: false,
       logoUrl: '/assets/images/dimaso_main_logo.webp',
+      isHeaderFixed: false, 
     };
   },
   computed: {
@@ -79,6 +81,26 @@ export default {
     toggleMobileMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
+    // 2. Thêm phương thức xử lý sự kiện cuộn trang
+    handleScroll() {
+      // Khi vị trí cuộn theo trục Y lớn hơn 100px, đặt isHeaderFixed thành true
+      // Ngược lại, đặt thành false. Bạn có thể thay đổi giá trị 100 cho phù hợp.
+      if (window.scrollY > 100) {
+        this.isHeaderFixed = true;
+      } else {
+        this.isHeaderFixed = false;
+      }
+    },
+  },
+
+  // 3. Sử dụng lifecycle hooks để thêm và xóa bỏ trình lắng nghe sự kiện
+  mounted() {
+    // Thêm trình lắng nghe sự kiện 'scroll' vào đối tượng window khi component được tạo
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    // Xóa bỏ trình lắng nghe sự kiện khi component bị hủy để tránh rò rỉ bộ nhớ
+    window.removeEventListener('scroll', this.handleScroll);
   },
 };
 </script>

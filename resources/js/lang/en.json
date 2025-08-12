@@ -103,5 +103,35 @@
       "phoneIcon": "Phone icon",
       "messageIcon": "Message icon"
     }
+  },
+  "contact_form": {
+    "title": {
+      "part1": "Connect",
+      "part2": "with customers -",
+      "part3": "Increase",
+      "part4": "sales"
+    },
+    "subtitle": "Increase sales with Dimaso's Digital Marketing solution",
+    "labels": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "message": "Message"
+    },
+    "submit_button": "Get a consultation now",
+    "alerts": {
+      "success": "Thank you for your contact! We will respond as soon as possible.",
+      "error": "Failed to send contact. Please try again later."
+    },
+    "alt": {
+      "background": "Background Image",
+      "user_icon": "User Icon",
+      "mail_icon": "Mail Icon",
+      "phone_icon": "Phone Icon",
+      "message_icon": "Message Icon"
+    },
+    "aria": {
+      "form_label": "Contact Form"
+    }
   }
 }

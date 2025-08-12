@@ -103,5 +103,35 @@
       "phoneIcon": "Biểu tượng điện thoại",
       "messageIcon": "Biểu tượng tin nhắn"
     }
+  },
+  "contact_form": {
+    "title": {
+      "part1": "Kết nối",
+      "part2": "khách hàng -",
+      "part3": "Gia tăng",
+      "part4": "doanh số"
+    },
+    "subtitle": "Gia tăng doanh số với giải pháp Digital Marketing của Dimaso",
+    "labels": {
+      "name": "Họ và tên",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "message": "Lời nhắn"
+    },
+    "submit_button": "Nhận tư vấn ngay",
+    "alerts": {
+      "success": "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.",
+      "error": "Gửi liên hệ thất bại. Vui lòng thử lại sau."
+    },
+    "alt": {
+      "background": "Ảnh nền",
+      "user_icon": "Biểu tượng người dùng",
+      "mail_icon": "Biểu tượng thư",
+      "phone_icon": "Biểu tượng điện thoại",
+      "message_icon": "Biểu tượng tin nhắn"
+    },
+    "aria": {
+      "form_label": "Form liên hệ"
+    }
   }
 }

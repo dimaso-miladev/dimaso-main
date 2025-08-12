@@ -15,7 +15,6 @@ $appCss = mix('dist/css/app.css');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="/assets/images/icon-dimaso.png" type="image/svg+xml">
   <title>{{ config('app.name') }}</title>
-
   <link rel="stylesheet" href="{{ (str_starts_with($appCss, '//') ? 'http:' : '').$appCss }}">
 </head>
 <body>
