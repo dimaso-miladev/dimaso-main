@@ -90,7 +90,6 @@
             <div class="features__container">
               <h2 class="features__title section__title">
                 <p class="section__title-text section__title-logo">
-                <fa icon="lightbulb" class="section__icon" />
                   <span>
                     Doanh nghiệp của bạn
                     <span class="section__title-highlight"> đang cần? </span>
@@ -151,13 +150,6 @@
                 </div>
               </div>
             </div>
-            <div class="features__shapes">
-              <img src="https://connectx.com.vn/wp-content/themes/astra-child/assets/imgs/imgFeatureShapeLeftTop.svg"
-                alt="imgShapeLeft" class="features__shape features__shape--left-top" />
-              <img
-                src="https://connectx.com.vn/wp-content/themes/astra-child/assets/imgs/imgFeatureShapeRightBottom.svg"
-                alt="imgShapeLeftBottom" class="features__shape features__shape--right-bottom" />
-            </div>
           </section>
           <!-- Advertising -->
           <section class="main__section advertising">
@@ -179,7 +171,7 @@
                 <div class="advertising__feature">
                   <div class="icon__box">
                     <img class="icon__img"
-                      src="https://connectx.com.vn/wp-content/themes/astra-child/assets/icons/icPersonAdvertising.svg"
+                      :src="iconPerson"
                       alt="search icon" />
                   </div>
                   <p class="advertising__feature-description">
@@ -188,7 +180,7 @@
                 </div>
                 <div class="advertising__feature">
                   <div class="icon__box">
-                    <img src="https://connectx.com.vn/wp-content/themes/astra-child/assets/icons/icParkSolidClick.svg"
+                    <img :src="iconClick"
                       alt="placeholder" class="icon__img" />
                   </div>
                   <p class="advertising__feature-description">
@@ -198,7 +190,7 @@
                 <div class="advertising__feature">
                   <div class="icon__box">
                     <img
-                      src="https://connectx.com.vn/wp-content/themes/astra-child/assets/icons/icLocationAdvetising.svg"
+                      :src="iconLocation"
                       alt="location" class="icon__img" />
                   </div>
                   <p class="advertising__feature-description">
@@ -207,19 +199,12 @@
                 </div>
               </div>
             </div>
-            <div class="advertising__shapes">
-              <img src="https://connectx.com.vn/wp-content/themes/astra-child/assets/imgs/imgAdsShapeLeftBottom.svg"
-                alt="imgShapeLeft" class="advertising__shape advertising__shape--left-bottom" />
-              <img src="https://connectx.com.vn/wp-content/themes/astra-child/assets/imgs/imgAdsShapeLeftTop.svg"
-                alt="imgShapeLeftBottom" class="advertising__shape advertising__shape--left-top" />
-            </div>
           </section>
           <!-- Who using -->
           <section class="main__section who-using">
             <div class="who-using__container">
               <h2 class="section__title">
                 <p class="section__title-text section__title-logo">
-                  <fa icon="list-ul" class="section__icon" />
                   <span>
                     Thiết kế website
                     <span class="section__title-highlight--secondary">
@@ -289,7 +274,7 @@
                         <img :src="iconDimaso"
                           alt="logoConnectFlexFeature" class="logo-shorter__img" />
                       </div>
-                      <h4 class="who-using__category-name">Langding Page</h4>
+                      <h4 class="who-using__category-name">Giới thiệu doanh nghiệp</h4>
                     </div>
                   </a>
                 </div>
@@ -302,7 +287,7 @@
                         <img :src="iconDimaso"
                           alt="logoConnectFlexFeature" class="logo-shorter__img" />
                       </div>
-                      <h4 class="who-using__category-name">Khảo sát thông tin</h4>
+                      <h4 class="who-using__category-name">Đặt lịch/ Bán vé</h4>
                     </div>
                   </a>
                 </div>
@@ -319,6 +304,7 @@
 </template>
 
 <script>
+import { icon } from '@fortawesome/fontawesome-svg-core';
 import { mapGetters } from 'vuex'
 import ContactForm from '~/components/ContactForm';
 
@@ -336,6 +322,9 @@ export default {
     heroBanner: '/assets/images/hero_banner.png',
     iconDimaso: '/assets/images/icon-dimaso.png',
     logoUrl: '/assets/images/dimaso_main_logo.webp',
+    iconPerson: '/assets/images/icPersonAdvertising.svg',
+    iconClick: '/assets/images/icParkSolidClick.svg',
+    iconLocation: '/assets/images/icLocationAdvetising.svg',
   }),
 
   computed: mapGetters({
@@ -476,9 +465,9 @@ export default {
   padding: 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .logo-shorter__box {
-    padding: 0.75rem;
+    display: none;
   }
 }
 
