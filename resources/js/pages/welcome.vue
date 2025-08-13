@@ -214,7 +214,7 @@
               </h2>
               <div class="who-using__categories">
                 <div class="who-using__category">
-                  <a href="https://connectx.com.vn/?post_type=post&p=43">
+                  <a href="#p=43">
                     <img src="https://connectx.com.vn/wp-content/uploads/2024/05/nha-hang.jpg" alt=""
                       class="who-using__category-bg" />
                     <div class="who-using__category-content">
@@ -227,7 +227,7 @@
                   </a>
                 </div>
                 <div class="who-using__category">
-                  <a href="https://connectx.com.vn/?post_type=post&p=214">
+                  <a href="#p=214">
                     <img src="https://connectx.com.vn/wp-content/uploads/2024/05/cafe.jpg" alt=""
                       class="who-using__category-bg" />
                     <div class="who-using__category-content">
@@ -240,7 +240,7 @@
                   </a>
                 </div>
                 <div class="who-using__category">
-                  <a href="https://connectx.com.vn/?post_type=post&p=218">
+                  <a href="#p=218">
                     <img src="https://connectx.com.vn/wp-content/uploads/2024/05/khach-san.jpg" alt=""
                       class="who-using__category-bg" />
                     <div class="who-using__category-content">
@@ -253,7 +253,7 @@
                   </a>
                 </div>
                 <div class="who-using__category">
-                  <a href="https://connectx.com.vn/?post_type=post&p=260">
+                  <a href="#p=260">
                     <img src="https://connectx.com.vn/wp-content/uploads/2024/05/tt-thuongmai.jpg" alt=""
                       class="who-using__category-bg" />
                     <div class="who-using__category-content">
@@ -266,7 +266,7 @@
                   </a>
                 </div>
                 <div class="who-using__category">
-                  <a href="https://connectx.com.vn/?post_type=post&p=294">
+                  <a href="#p=294">
                     <img src="https://connectx.com.vn/wp-content/uploads/2024/05/hoi-nghi.jpg" alt=""
                       class="who-using__category-bg" />
                     <div class="who-using__category-content">
@@ -279,7 +279,7 @@
                   </a>
                 </div>
                 <div class="who-using__category">
-                  <a href="https://connectx.com.vn/?post_type=post&p=43">
+                  <a href="#p=43">
                     <img src="https://connectx.com.vn/wp-content/uploads/2024/05/sukienkhac.jpg" alt=""
                       class="who-using__category-bg" />
                     <div class="who-using__category-content">
