@@ -46,7 +46,13 @@
       "packages": "Bảng giá",
       "portfolio": "Dự án",
       "blogs": "Bài viết",
-      "contact": "Liên hệ"
+      "contact": "Liên hệ",
+      "checklive": "Checklive tài khoản",
+      "get2fa": "Lấy mã 2FA",
+      "tools": "Công cụ",
+      "shop": "Cửa hàng",
+      "accounts": "Tài khoản",
+      "marketing_tools": "Công cụ Marketing"
     }
   },
   "footer": {

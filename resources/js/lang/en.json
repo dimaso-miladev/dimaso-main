@@ -46,7 +46,13 @@
       "packages": "Packages",
       "portfolio": "Portfolio",
       "blogs": "Blogs",
-      "contact": "Contact Us"
+      "contact": "Contact Us",
+      "checklive": "Checklive",
+      "get2fa": "Get 2FA",
+      "tools": "Tools",
+      "shop": "Shop",
+      "accounts": "Accounts",
+      "marketing_tools": "Marketing Tools"
     }
   },
   "footer": {

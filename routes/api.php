@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\Api\TwoFactorAuthController;
 use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,6 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::patch('settings/profile', [ProfileController::class, 'update']);
     Route::patch('settings/password', [PasswordController::class, 'update']);
-    //Upload Photo
-    Route::post('photos/upload', [PhotoController::class, 'upload']);
-    Route::post('/photos/save-paths', [PhotoController::class, 'savePaths']);
 
 });
 
@@ -49,7 +47,8 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::post('oauth/{driver}', [OAuthController::class, 'redirect']);
     Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleCallback'])->name('oauth.callback');
 
-    //
+    //Sen form contact
     Route::post('send-mail-contact', [ContactController::class, 'sendMailContact']);
-
+    //Get 2FA api
+    Route::post('/2fa/generate', [TwoFactorAuthController::class, 'generate']);
 });

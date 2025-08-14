@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Thêm class binding `:class="{ 'fixed-header': isHeaderFixed }"` vào #header-wrap -->
     <header id="site-header" class="header">
       <div id="header-wrap" :class="{ 'fixed-header': isHeaderFixed }">
         <div class="container-fluid">
@@ -8,7 +7,6 @@
             <div class="col">
               <nav class="ht-navigation">
                 <a class="navbar-brand logo m-0" :href="homeUrl">
-                  <!-- Sử dụng $t cho alt text để thân thiện với SEO và accessibility -->
                   <img class="img-fluid" :src="logoUrl" :alt="$t('header.logoAlt')" />
                 </a>
                 <div class="ht-mobile-menu-bg" :class="{ 'menu-active': isMenuOpen }"></div>
@@ -17,14 +15,20 @@
                     <div class="closepanel" @click="toggleMobileMenu">
                       <i class="bi bi-x-lg"></i>
                     </div>
-                    <!-- v-for giờ đây lặp qua thuộc tính computed menuItems với href động -->
                     <ul id="menu-primary-menu" class="menu">
+                      <!-- Vòng lặp cho các mục menu -->
                       <li
                         v-for="item in menuItems"
                         :key="item.key"
-                        :class="['menu-item', { 'current-menu-item': item.current }]"
+                        :class="['menu-item', { 'current-menu-item': item.current, 'menu-item-has-children': item.children }]"
                       >
                         <a :href="item.href" :aria-current="item.current ? 'page' : null">{{ item.text }}</a>
+                        <!-- KIỂM TRA VÀ HIỂN THỊ MENU CON (SUB-MENU) -->
+                        <ul class="sub-menu" v-if="item.children && item.children.length > 0">
+                          <li v-for="child in item.children" :key="child.key" class="menu-item">
+                            <a :href="child.href">{{ child.text }}</a>
+                          </li>
+                        </ul>
                       </li>
                     </ul>
                   </div>
@@ -66,14 +70,33 @@ export default {
       const siteUrl = this.homeUrl;
 
       return [
-        // Sử dụng template literals (dấu ``) để nối chuỗi một cách sạch sẽ
         { key: 'home', text: this.$t('header.nav.home'), href: `${siteUrl}/`, current: true },
         { key: 'about', text: this.$t('header.nav.about'), href: `${siteUrl}/about-us/`, current: false },
         { key: 'services', text: this.$t('header.nav.services'), href: `${siteUrl}/service/`, current: false },
         { key: 'packages', text: this.$t('header.nav.packages'), href: `${siteUrl}/packages/`, current: false },
         { key: 'portfolio', text: this.$t('header.nav.portfolio'), href: `${siteUrl}/portfolios/`, current: false },
-        { key: 'blogs', text: this.$t('header.nav.blogs'), href: `${siteUrl}/blogs/`, current: false },
+                { key: 'blogs', text: this.$t('header.nav.blogs'), href: `${siteUrl}/blogs/`, current: false },
         { key: 'contact', text: this.$t('header.nav.contact'), href: `${siteUrl}/contact-us/`, current: false },
+        {
+          key: 'tools',
+          text: this.$t('header.nav.tools'),
+          href: '#',
+          current: false,
+          children: [
+            { key: 'get-2fa', text: this.$t('header.nav.get2fa'), href: `${siteUrl}/tools/get-2fa/`, current: false },
+            { key: 'check-live', text: this.$t('header.nav.checklive'), href: `${siteUrl}/tools/check-live/`, current: false },
+          ]
+        },
+        // {
+        //   key: 'shop',
+        //   text: this.$t('header.nav.shop'), 
+        //   href: '#',
+        //   current: false,
+        //   children: [
+        //     { key: 'accounts', text: this.$t('header.nav.accounts'), href: `${siteUrl}/shop/accounts/`, current: false },
+        //     { key: 'marketing-tools', text: this.$t('header.nav.marketing_tools'), href: `${siteUrl}/shop/marketing-tools/`, current: false },
+        //   ]
+        // },
       ];
     }
   },
@@ -81,10 +104,7 @@ export default {
     toggleMobileMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-    // 2. Thêm phương thức xử lý sự kiện cuộn trang
     handleScroll() {
-      // Khi vị trí cuộn theo trục Y lớn hơn 100px, đặt isHeaderFixed thành true
-      // Ngược lại, đặt thành false. Bạn có thể thay đổi giá trị 100 cho phù hợp.
       if (window.scrollY > 100) {
         this.isHeaderFixed = true;
       } else {
@@ -93,14 +113,41 @@ export default {
     },
   },
 
-  // 3. Sử dụng lifecycle hooks để thêm và xóa bỏ trình lắng nghe sự kiện
   mounted() {
-    // Thêm trình lắng nghe sự kiện 'scroll' vào đối tượng window khi component được tạo
     window.addEventListener('scroll', this.handleScroll);
   },
   beforeDestroy() {
-    // Xóa bỏ trình lắng nghe sự kiện khi component bị hủy để tránh rò rỉ bộ nhớ
     window.removeEventListener('scroll', this.handleScroll);
   },
 };
 </script>
+<style scoped>
+/* Ẩn menu con theo mặc định */
+.menu-item-has-children .sub-menu {
+  display: none;
+  position: absolute; /* Đưa menu con ra khỏi luồng trang */
+  background-color: #fff; /* Màu nền cho menu con */
+  padding: 10px 0;
+  list-style: none;
+  min-width: 200px; /* Chiều rộng tối thiểu */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Hiển thị menu con khi di chuột vào mục cha */
+.menu-item-has-children:hover > .sub-menu {
+  display: block;
+}
+
+/* Định dạng cho các mục trong menu con */
+.sub-menu .menu-item a {
+  padding: 8px 20px;
+  display: block;
+  white-space: nowrap;
+  color: #333;
+}
+
+.sub-menu .menu-item a:hover {
+  background-color: #f5f5f5;
+}
+</style>
