@@ -304,7 +304,6 @@
 </template>
 
 <script>
-import { icon } from '@fortawesome/fontawesome-svg-core';
 import { mapGetters } from 'vuex'
 import ContactForm from '~/components/ContactForm';
 
