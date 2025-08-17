@@ -16,7 +16,10 @@ import {
   faPhone,
   faComment,
   faLightbulb,
-  faListUl
+  faListUl,
+  faChartLine,
+  faChartBar,
+  faChartPie,
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -32,6 +35,7 @@ import {
 config.autoAddCss = false
 
 library.add(
-  faUser, faLock,faListUl, faSignOutAlt, faCog, faGithub,faGoogle, faEye, faEyeSlash, faArrowRight, faArrowAltCircleRight, faFacebookF, faEnvelope, faPhone, faComment, faLightbulb)
+  faUser, faLock,faListUl, faSignOutAlt, faCog, faGithub,faGoogle, faEye, faEyeSlash, faArrowRight, faArrowAltCircleRight, faFacebookF, faEnvelope, faPhone, faComment, faLightbulb,
+faChartLine,faChartPie)
 
 Vue.component('Fa', FontAwesomeIcon)
