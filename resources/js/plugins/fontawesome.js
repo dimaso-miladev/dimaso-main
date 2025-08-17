@@ -20,22 +20,19 @@ import {
   faChartLine,
   faChartBar,
   faChartPie,
+  faUserCheck, faCheck
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
-  faEdge,
-  faEvernote,
-  faFacebook,
   faFacebookF,
   faGithub,
   faGoogle,
-  faTelegram
 } from '@fortawesome/free-brands-svg-icons'
 
 config.autoAddCss = false
 
 library.add(
   faUser, faLock,faListUl, faSignOutAlt, faCog, faGithub,faGoogle, faEye, faEyeSlash, faArrowRight, faArrowAltCircleRight, faFacebookF, faEnvelope, faPhone, faComment, faLightbulb,
-faChartLine,faChartPie)
+faChartLine,faChartPie, faUserCheck, faCheck)
 
 Vue.component('Fa', FontAwesomeIcon)
