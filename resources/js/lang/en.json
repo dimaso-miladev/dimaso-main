@@ -266,5 +266,57 @@
         "answer": "Absolutely! We work with businesses of all sizes, from startups and small businesses to large corporations. We believe every business deserves an effective marketing strategy, and we have flexible solutions to fit different needs and budgets."
       }
     }
+  },
+  "home_content": {
+    "hero": {
+      "alt": "Dimaso hero banner",
+      "welcome": "WELCOME TO",
+      "description": "A platform that helps businesses create advertising campaigns, collect customer information, and enhance engagement.",
+      "buttonText": "Explore Services"
+    },
+    "features": {
+      "title": "Your business",
+      "titleHighlight": "is in need of?",
+      "items": {
+        "marketing": {
+          "title": "Product Marketing",
+          "description": "Market new products and promotional programs to target customers"
+        },
+        "engagement": {
+          "title": "Engaging Experiences",
+          "description": "Diverse methods to boost customer experience and interaction"
+        },
+        "conversion": {
+          "title": "Customer Conversion",
+          "description": "Convert casual visitors into potential customers"
+        },
+        "understanding": {
+          "title": "Customer Understanding",
+          "description": "Collect information, survey customer opinions on existing products/services or new needs"
+        }
+      }
+    },
+    "advertising": {
+      "titlePart1": "precisely defines",
+      "titlePart2": "Displayed content",
+      "titleHighlight": "by target audience",
+      "items": {
+        "demographics": "Display ads based on customer demographics",
+        "visits": "Display ads based on the number of customer visits",
+        "location": "Display ads based on customer location and area"
+      }
+    },
+    "whoUsing": {
+      "title": "Website Design for",
+      "titleHighlight": "Multiple Fields",
+      "items": {
+        "restaurant": "Restaurant",
+        "cafeBar": "Cafe/Bar",
+        "hotel": "Hotel",
+        "mall": "Shopping Mall",
+        "corporate": "Corporate Introduction",
+        "booking": "Booking/Ticketing"
+      }
+    }
   }
 }

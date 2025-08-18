@@ -91,8 +91,8 @@
               <h2 class="features__title section__title">
                 <p class="section__title-text section__title-logo">
                   <span>
-                    Doanh nghiệp của bạn
-                    <span class="section__title-highlight"> đang cần? </span>
+                    {{ $t('home_content.features.title') }}
+                    <span class="section__title-highlight"> {{ $t('home_content.features.titleHighlight') }} </span>
                   </span>
                 </p>
               </h2>
@@ -103,10 +103,9 @@
                       alt="logo Dimaso" class="logo-shorter__img" />
                   </div>
                   <div class="features__box-content">
-                    <h4 class="features__box-title">Tiếp thị sản phẩm</h4>
+                    <h4 class="features__box-title">{{ $t('home_content.features.items.marketing.title') }}</h4>
                     <p class="features__box-description">
-                      Tiếp thị sản phẩm mới, chương trình khuyến mại mới đến khách
-                      hàng mục tiêu
+                      {{ $t('home_content.features.items.marketing.description') }}
                     </p>
                   </div>
                 </div>
@@ -116,10 +115,9 @@
                       alt="logoConnectFlexFeature" class="logo-shorter__img" />
                   </div>
                   <div class="features__box-content">
-                    <h4 class="features__box-title">Gắn kết trải nghiệm</h4>
+                    <h4 class="features__box-title">{{ $t('home_content.features.items.engagement.title') }}</h4>
                     <p class="features__box-description">
-                      Đa dạng phương thức thúc đẩy trải nghiệm và tương tác của
-                      khách hàng
+                      {{ $t('home_content.features.items.engagement.description') }}
                     </p>
                   </div>
                 </div>
@@ -129,9 +127,9 @@
                       alt="logoConnectFlexFeature" class="logo-shorter__img" />
                   </div>
                   <div class="features__box-content">
-                    <h4 class="features__box-title">Chuyển đổi khách hàng</h4>
+                    <h4 class="features__box-title">{{ $t('home_content.features.items.conversion.title') }}</h4>
                     <p class="features__box-description">
-                      Chuyển đổi khách vãng lai trở thành khách hàng tiềm năng
+                      {{ $t('home_content.features.items.conversion.description') }}
                     </p>
                   </div>
                 </div>
@@ -141,10 +139,9 @@
                       alt="logoConnectFlexFeature" class="logo-shorter__img" />
                   </div>
                   <div class="features__box-content">
-                    <h4 class="features__box-title">Thấu hiểu khách hàng</h4>
+                    <h4 class="features__box-title">{{ $t('home_content.features.items.understanding.title') }}</h4>
                     <p class="features__box-description">
-                      Thu thập thông tin, khảo sát ý kiến khách hàng về sản
-                      phẩm/dịch vụ hiện hữu hoặc nhu cầu mới
+                      {{ $t('home_content.features.items.understanding.description') }}
                     </p>
                   </div>
                 </div>
@@ -158,12 +155,12 @@
                 <p class="section__title-text section__title-logo">
                   <img :src="logoUrl" alt="logo"
                     class="section__logo" />
-                  phân định chính xác
+                  {{ $t('home_content.advertising.titlePart1') }}
                 </p>
                 <p class="section__title-text">
-                  Nội dung hiển thị
+                  {{ $t('home_content.advertising.titlePart2') }}
                   <span class="section__title-highlight">
-                    theo đối tượng mục tiêu
+                    {{ $t('home_content.advertising.titleHighlight') }}
                   </span>
                 </p>
               </h2>
@@ -175,7 +172,7 @@
                       alt="search icon" />
                   </div>
                   <p class="advertising__feature-description">
-                    Hiển thị quảng cáo theo nhân khẩu học khách hàng
+                    {{ $t('home_content.advertising.items.demographics') }}
                   </p>
                 </div>
                 <div class="advertising__feature">
@@ -184,7 +181,7 @@
                       alt="placeholder" class="icon__img" />
                   </div>
                   <p class="advertising__feature-description">
-                    Hiển thị quảng cáo theo số lần truy cập của khách hàng
+                    {{ $t('home_content.advertising.items.visits') }}
                   </p>
                 </div>
                 <div class="advertising__feature">
@@ -194,7 +191,7 @@
                       alt="location" class="icon__img" />
                   </div>
                   <p class="advertising__feature-description">
-                    Hiển thị quảng cáo theo địa điểm, khu vực khách hàng
+                    {{ $t('home_content.advertising.items.location') }}
                   </p>
                 </div>
               </div>
@@ -206,9 +203,9 @@
               <h2 class="section__title">
                 <p class="section__title-text section__title-logo">
                   <span>
-                    Thiết kế website
+                    {{ $t('home_content.whoUsing.title') }}
                     <span class="section__title-highlight--secondary">
-                      Đa lĩnh vực</span>
+                      {{ $t('home_content.whoUsing.titleHighlight') }}</span>
                   </span>
                 </p>
               </h2>
@@ -222,7 +219,7 @@
                         <img :src="iconDimaso"
                           alt="logoConnectFlexFeature" class="logo-shorter__img" />
                       </div>
-                      <h4 class="who-using__category-name">Nhà hàng</h4>
+                      <h4 class="who-using__category-name">{{ $t('home_content.whoUsing.items.restaurant') }}</h4>
                     </div>
                   </a>
                 </div>
@@ -235,7 +232,7 @@
                         <img :src="iconDimaso"
                           alt="logoConnectFlexFeature" class="logo-shorter__img" />
                       </div>
-                      <h4 class="who-using__category-name">Cafe/quán bar</h4>
+                      <h4 class="who-using__category-name">{{ $t('home_content.whoUsing.items.cafeBar') }}</h4>
                     </div>
                   </a>
                 </div>
@@ -248,7 +245,7 @@
                         <img :src="iconDimaso"
                           alt="logoConnectFlexFeature" class="logo-shorter__img" />
                       </div>
-                      <h4 class="who-using__category-name">Khách sạn</h4>
+                      <h4 class="who-using__category-name">{{ $t('home_content.whoUsing.items.hotel') }}</h4>
                     </div>
                   </a>
                 </div>
@@ -261,7 +258,7 @@
                         <img :src="iconDimaso"
                           alt="logoConnectFlexFeature" class="logo-shorter__img" />
                       </div>
-                      <h4 class="who-using__category-name">Trung tâm thương mại</h4>
+                      <h4 class="who-using__category-name">{{ $t('home_content.whoUsing.items.mall') }}</h4>
                     </div>
                   </a>
                 </div>
@@ -274,7 +271,7 @@
                         <img :src="iconDimaso"
                           alt="logoConnectFlexFeature" class="logo-shorter__img" />
                       </div>
-                      <h4 class="who-using__category-name">Giới thiệu doanh nghiệp</h4>
+                      <h4 class="who-using__category-name">{{ $t('home_content.whoUsing.items.corporate') }}</h4>
                     </div>
                   </a>
                 </div>
@@ -287,7 +284,7 @@
                         <img :src="iconDimaso"
                           alt="logoConnectFlexFeature" class="logo-shorter__img" />
                       </div>
-                      <h4 class="who-using__category-name">Đặt lịch/ Bán vé</h4>
+                      <h4 class="who-using__category-name">{{ $t('home_content.whoUsing.items.booking') }}</h4>
                     </div>
                   </a>
                 </div>
@@ -295,9 +292,7 @@
             </div>
           </section>
         </main>
-        <!-- </div>  -->
-        <!-- ast-container -->
-      </div><!-- #content -->
+      </div>
     </div>
     <ContactForm />
   </div>
