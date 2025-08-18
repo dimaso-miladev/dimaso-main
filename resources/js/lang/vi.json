@@ -266,5 +266,57 @@
         "answer": "Chắc chắn rồi! Chúng tôi làm việc với các doanh nghiệp ở mọi quy mô, từ các công ty khởi nghiệp và doanh nghiệp nhỏ đến các tập đoàn lớn. Chúng tôi tin rằng mọi doanh nghiệp đều xứng đáng có một chiến lược marketing hiệu quả và chúng tôi có các giải pháp linh hoạt để phù hợp với các nhu cầu và ngân sách khác nhau."
       }
     }
+  },
+  "home_content": {
+    "hero": {
+      "alt": "Biểu ngữ anh hùng Dimaso",
+      "welcome": "CHÀO MỪNG ĐẾN VỚI",
+      "description": "Nền tảng giúp doanh nghiệp tạo chiến dịch quảng cáo, thu thập thông tin khách hàng và tăng cường tương tác.",
+      "buttonText": "Khám phá dịch vụ"
+    },
+    "features": {
+      "title": "Doanh nghiệp của bạn",
+      "titleHighlight": "đang cần?",
+      "items": {
+        "marketing": {
+          "title": "Tiếp thị sản phẩm",
+          "description": "Tiếp thị sản phẩm mới, chương trình khuyến mại mới đến khách hàng mục tiêu"
+        },
+        "engagement": {
+          "title": "Gắn kết trải nghiệm",
+          "description": "Đa dạng phương thức thúc đẩy trải nghiệm và tương tác của khách hàng"
+        },
+        "conversion": {
+          "title": "Chuyển đổi khách hàng",
+          "description": "Chuyển đổi khách vãng lai trở thành khách hàng tiềm năng"
+        },
+        "understanding": {
+          "title": "Thấu hiểu khách hàng",
+          "description": "Thu thập thông tin, khảo sát ý kiến khách hàng về sản phẩm/dịch vụ hiện hữu hoặc nhu cầu mới"
+        }
+      }
+    },
+    "advertising": {
+      "titlePart1": "phân định chính xác",
+      "titlePart2": "Nội dung hiển thị",
+      "titleHighlight": "theo đối tượng mục tiêu",
+      "items": {
+        "demographics": "Hiển thị quảng cáo theo nhân khẩu học khách hàng",
+        "visits": "Hiển thị quảng cáo theo số lần truy cập của khách hàng",
+        "location": "Hiển thị quảng cáo theo địa điểm, khu vực khách hàng"
+      }
+    },
+    "whoUsing": {
+      "title": "Thiết kế website",
+      "titleHighlight": "Đa lĩnh vực",
+      "items": {
+        "restaurant": "Nhà hàng",
+        "cafeBar": "Cafe/quán bar",
+        "hotel": "Khách sạn",
+        "mall": "Trung tâm thương mại",
+        "corporate": "Giới thiệu doanh nghiệp",
+        "booking": "Đặt lịch/ Bán vé"
+      }
+    }
   }
 }
