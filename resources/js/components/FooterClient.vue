@@ -97,14 +97,14 @@
                     <div class="footer__copyright-text">
                        {{ $t('footer.copyright.text') }}
                     </div>
-                    <ul class="footer__legal-links">
+                    <!-- <ul class="footer__legal-links">
                         <li class="footer__legal-item">
                             <a class="footer__legal-item-link" href="">{{ $t('footer.copyright.terms') }}</a>
                         </li>
                         <li class="footer__legal-item">
                             <a class="footer__legal-item-link" href="">{{ $t('footer.copyright.privacy') }}</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </section>
         </div>

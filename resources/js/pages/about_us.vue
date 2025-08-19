@@ -11,20 +11,25 @@
               <div class="col-lg-6 mb-4 mb-lg-0">
                 <div class="row">
                   <div class="col-lg-11">
-                    <span class="hero-subtitle text-uppercase aos-init aos-animate" data-aos="fade-up" data-aos-delay="0">
+                    <span class="hero-subtitle text-uppercase aos-init aos-animate" data-aos="fade-up"
+                      data-aos-delay="0">
                       {{ $t('hero.subtitle') }}
                     </span>
                     <h1 class="hero-title mb-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                       {{ $t('hero.title') }}
                     </h1>
-                    <p class="hero-description mb-4 mb-lg-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                    <p class="hero-description mb-4 mb-lg-5 aos-init aos-animate" data-aos="fade-up"
+                      data-aos-delay="200">
                       {{ $t('hero.description') }}
                     </p>
-                    <div class="cta d-flex gap-2 mb-4 mb-lg-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                    <div class="cta d-flex gap-2 mb-4 mb-lg-5 aos-init aos-animate" data-aos="fade-up"
+                      data-aos-delay="300">
                       <a class="btn" href="#">{{ $t('hero.cta.freeConsultation') }}</a>
                       <a class="btn btn-white-outline" href="#">
                         {{ $t('hero.cta.viewProjects') }}
-                        <svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" width="18"
+                          height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round">
                           <path d="M7 7h10v10"></path>
                           <path d="M7 17 17 7"></path>
                         </svg>
@@ -35,8 +40,10 @@
               </div>
               <div class="col-lg-6">
                 <div class="hero-img">
-                  <img class="img-card img-fluid aos-init aos-animate" :src="cardEpxImage" alt="Thẻ hình ảnh" data-aos="fade-down" data-aos-delay="600">
-                  <img class="img-main img-fluid rounded-4 aos-init aos-animate" :src="heroImage1" alt="Hình ảnh anh hùng" data-aos="fade-in" data-aos-delay="500">
+                  <img class="img-card img-fluid aos-init aos-animate" :src="cardEpxImage" alt="Thẻ hình ảnh"
+                    data-aos="fade-down" data-aos-delay="600">
+                  <img class="img-main img-fluid rounded-4 aos-init aos-animate" :src="heroImage1"
+                    alt="Hình ảnh anh hùng" data-aos="fade-in" data-aos-delay="500">
                 </div>
               </div>
             </div>
@@ -51,7 +58,8 @@
               <div class="col-md-6 order-md-2">
                 <div class="row justify-content-end">
                   <div class="col-md-11 mb-4 mb-md-0">
-                    <span class="subtitle text-uppercase mb-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="0">
+                    <span class="subtitle text-uppercase mb-3 aos-init aos-animate" data-aos="fade-up"
+                      data-aos-delay="0">
                       {{ $t('about.subtitle') }}
                     </span>
                     <h2 class="mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
@@ -64,25 +72,36 @@
                     <h4 class="small fw-bold mt-4 mb-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
                       {{ $t('about.coreValues.title') }}
                     </h4>
-                    <ul class="d-flex flex-row flex-wrap list-unstyled gap-3 features aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                    <ul class="d-flex flex-row flex-wrap list-unstyled gap-3 features aos-init aos-animate"
+                      data-aos="fade-up" data-aos-delay="400">
                       <li class="d-flex align-items-center gap-2">
-                        <span class="icon rounded-circle text-center"><fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa></span>
+                        <span class="icon rounded-circle text-center">
+                          <fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa>
+                        </span>
                         <span class="text">{{ $t('about.coreValues.items.innovation') }}</span>
                       </li>
                       <li class="d-flex align-items-center gap-2">
-                        <span class="icon rounded-circle text-center"><fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa></span>
+                        <span class="icon rounded-circle text-center">
+                          <fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa>
+                        </span>
                         <span class="text">{{ $t('about.coreValues.items.efficiency') }}</span>
                       </li>
                       <li class="d-flex align-items-center gap-2">
-                        <span class="icon rounded-circle text-center"><fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa></span>
+                        <span class="icon rounded-circle text-center">
+                          <fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa>
+                        </span>
                         <span class="text">{{ $t('about.coreValues.items.customerCentric') }}</span>
                       </li>
                       <li class="d-flex align-items-center gap-2">
-                        <span class="icon rounded-circle text-center"><fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa></span>
+                        <span class="icon rounded-circle text-center">
+                          <fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa>
+                        </span>
                         <span class="text">{{ $t('about.coreValues.items.transparency') }}</span>
                       </li>
                       <li class="d-flex align-items-center gap-2">
-                        <span class="icon rounded-circle text-center"><fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa></span>
+                        <span class="icon rounded-circle text-center">
+                          <fa :icon="['fas', 'check']" class="fs-4 icon-check"></fa>
+                        </span>
                         <span class="text">{{ $t('about.coreValues.items.strategicPartner') }}</span>
                       </li>
                     </ul>
@@ -91,8 +110,10 @@
               </div>
               <div class="col-md-6">
                 <div class="img-wrap position-relative">
-                  <img class="img-fluid rounded-4 aos-init aos-animate" :src="aboutImage2" alt="Image Placeholder" data-aos="fade-up" data-aos-delay="0">
-                  <div class="mission-statement p-4 rounded-4 d-flex gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                  <img class="img-fluid rounded-4 aos-init aos-animate" :src="aboutImage2" alt="Image Placeholder"
+                    data-aos="fade-up" data-aos-delay="0">
+                  <div class="mission-statement p-4 rounded-4 d-flex gap-4 aos-init aos-animate" data-aos="fade-up"
+                    data-aos-delay="100">
                     <div class="mission-icon text-center rounded-circle">
                       <fa :icon="['fas', 'lightbulb']" class="fs-4 icon-idea"></fa>
                     </div>
@@ -124,7 +145,8 @@
                               <p class="mb-5">{{ $t('features.description') }}</p>
                             </div>
                             <div class="align-self-start">
-                              <a class="glightbox btn btn-play d-inline-flex align-items-center gap-2" href="#wpcf7-f6-o1">
+                              <a class="glightbox btn btn-play d-inline-flex align-items-center gap-2"
+                                href="#wpcf7-f6-o1">
                                 {{ $t('features.cta') }}
                               </a>
                             </div>
@@ -137,22 +159,30 @@
                         <div class="col-lg-11">
                           <div class="row">
                             <div class="col-sm-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="0">
-                              <div class="icon text-center mb-4"><fa :icon="['fas', 'user-check']" class="fs-4 why-choice-icon"></fa></div>
+                              <div class="icon text-center mb-4">
+                                <fa :icon="['fas', 'user-check']" class="fs-4 why-choice-icon"></fa>
+                              </div>
                               <h3 class="fs-6 fw-bold mb-3">{{ $t('features.items.comprehensive.title') }}</h3>
                               <p>{{ $t('features.items.comprehensive.description') }}</p>
                             </div>
                             <div class="col-sm-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                              <div class="icon text-center mb-4"><fa :icon="['fas', 'lightbulb']" class="fs-4 why-choice-icon"></fa></div>
+                              <div class="icon text-center mb-4">
+                                <fa :icon="['fas', 'lightbulb']" class="fs-4 why-choice-icon"></fa>
+                              </div>
                               <h3 class="fs-6 fw-bold mb-3">{{ $t('features.items.limitlessCreativity.title') }}</h3>
                               <p>{{ $t('features.items.limitlessCreativity.description') }}</p>
                             </div>
                             <div class="col-sm-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                              <div class="icon text-center mb-4"><fa :icon="['fas', 'chart-line']" class="fs-4 why-choice-icon"></fa></div>
+                              <div class="icon text-center mb-4">
+                                <fa :icon="['fas', 'chart-line']" class="fs-4 why-choice-icon"></fa>
+                              </div>
                               <h3 class="fs-6 fw-bold mb-3">{{ $t('features.items.transparentReporting.title') }}</h3>
                               <p>{{ $t('features.items.transparentReporting.description') }}</p>
                             </div>
                             <div class="col-sm-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                              <div class="icon text-center mb-4"><fa :icon="['fas', 'chart-pie']" class="fs-4 why-choice-icon"></fa></div>
+                              <div class="icon text-center mb-4">
+                                <fa :icon="['fas', 'chart-pie']" class="fs-4 why-choice-icon"></fa>
+                              </div>
                               <h3 class="fs-6 fw-bold mb-3">{{ $t('features.items.continuousOptimization.title') }}</h3>
                               <p>{{ $t('features.items.continuousOptimization.description') }}</p>
                             </div>
@@ -186,8 +216,11 @@
             </div>
             <div class="row g-md-5">
               <div class="col-md-6 col-lg-3">
-                <div class="step-card text-center h-100 d-flex flex-column justify-content-start position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="0">
-                  <div data-aos="fade-right" data-aos-delay="500" class="aos-init aos-animate"><img class="arch-line" :src="archLine" alt="Arch Line"></div>
+                <div
+                  class="step-card text-center h-100 d-flex flex-column justify-content-start position-relative aos-init aos-animate"
+                  data-aos="fade-up" data-aos-delay="0">
+                  <div data-aos="fade-right" data-aos-delay="500" class="aos-init aos-animate"><img class="arch-line"
+                      :src="archLine" alt="Arch Line"></div>
                   <span class="step-number rounded-circle text-center fw-bold mb-5 mx-auto">1</span>
                   <div>
                     <h3 class="fs-5 mb-4">{{ $t('howItWorks.steps.step1.title') }}</h3>
@@ -196,8 +229,10 @@
                 </div>
               </div>
               <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
-                <div class="step-card reverse text-center h-100 d-flex flex-column justify-content-start position-relative">
-                  <div data-aos="fade-right" data-aos-delay="1100" class="aos-init aos-animate"><img class="arch-line reverse" :src="archLineReverse" alt="Arch Line Reverse"></div>
+                <div
+                  class="step-card reverse text-center h-100 d-flex flex-column justify-content-start position-relative">
+                  <div data-aos="fade-right" data-aos-delay="1100" class="aos-init aos-animate"><img
+                      class="arch-line reverse" :src="archLineReverse" alt="Arch Line Reverse"></div>
                   <span class="step-number rounded-circle text-center fw-bold mb-5 mx-auto">2</span>
                   <h3 class="fs-5 mb-4">{{ $t('howItWorks.steps.step2.title') }}</h3>
                   <p>{{ $t('howItWorks.steps.step2.description') }}</p>
@@ -205,14 +240,16 @@
               </div>
               <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="1200">
                 <div class="step-card text-center h-100 d-flex flex-column justify-content-start position-relative">
-                  <div data-aos="fade-right" data-aos-delay="1700" class="aos-init aos-animate"><img class="arch-line" :src="archLine" alt="Arch Line"></div>
+                  <div data-aos="fade-right" data-aos-delay="1700" class="aos-init aos-animate"><img class="arch-line"
+                      :src="archLine" alt="Arch Line"></div>
                   <span class="step-number rounded-circle text-center fw-bold mb-5 mx-auto">3</span>
                   <h3 class="fs-5 mb-4">{{ $t('howItWorks.steps.step3.title') }}</h3>
                   <p>{{ $t('howItWorks.steps.step3.description') }}</p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="1800">
-                <div class="step-card last text-center h-100 d-flex flex-column justify-content-start position-relative">
+                <div
+                  class="step-card last text-center h-100 d-flex flex-column justify-content-start position-relative">
                   <span class="step-number rounded-circle text-center fw-bold mb-5 mx-auto">4</span>
                   <div>
                     <h3 class="fs-5 mb-4">{{ $t('howItWorks.steps.step4.title') }}</h3>
@@ -247,7 +284,9 @@
                     <p class="mb-4">{{ $t('services.items.seo.description') }}</p>
                   </div>
                   <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
-                    <span class="icons"><fa :icon="['fas', 'arrow-right']" class="icon-1"></fa></span>
+                    <span class="icons">
+                      <fa :icon="['fas', 'arrow-right']" class="icon-1"></fa>
+                    </span>
                     <span>{{ $t('services.items.readMore') }}</span>
                   </a>
                 </div>
@@ -260,7 +299,9 @@
                     <p class="mb-4">{{ $t('services.items.ppc.description') }}</p>
                   </div>
                   <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
-                    <span class="icons"><fa :icon="['fas', 'arrow-right']" class="icon-1"></fa></span>
+                    <span class="icons">
+                      <fa :icon="['fas', 'arrow-right']" class="icon-1"></fa>
+                    </span>
                     <span>{{ $t('services.items.readMore') }}</span>
                   </a>
                 </div>
@@ -273,7 +314,9 @@
                     <p class="mb-4">{{ $t('services.items.social.description') }}</p>
                   </div>
                   <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
-                    <span class="icons"><fa :icon="['fas', 'arrow-right']" class="icon-1"></fa></span>
+                    <span class="icons">
+                      <fa :icon="['fas', 'arrow-right']" class="icon-1"></fa>
+                    </span>
                     <span>{{ $t('services.items.readMore') }}</span>
                   </a>
                 </div>
@@ -286,7 +329,9 @@
                     <p class="mb-4">{{ $t('services.items.content.description') }}</p>
                   </div>
                   <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
-                    <span class="icons"><fa :icon="['fas', 'arrow-right']" class="icon-1"></fa></span>
+                    <span class="icons">
+                      <fa :icon="['fas', 'arrow-right']" class="icon-1"></fa>
+                    </span>
                     <span>{{ $t('services.items.readMore') }}</span>
                   </a>
                 </div>
@@ -299,7 +344,9 @@
                     <p class="mb-4">{{ $t('services.items.email.description') }}</p>
                   </div>
                   <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
-                    <span class="icons"><fa :icon="['fas', 'arrow-right']" class="icon-1"></fa></span>
+                    <span class="icons">
+                      <fa :icon="['fas', 'arrow-right']" class="icon-1"></fa>
+                    </span>
                     <span>{{ $t('services.items.readMore') }}</span>
                   </a>
                 </div>
@@ -312,7 +359,9 @@
                     <p class="mb-4">{{ $t('services.items.webDesign.description') }}</p>
                   </div>
                   <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
-                    <span class="icons"><fa :icon="['fas', 'arrow-right']" class="icon-1"></fa></span>
+                    <span class="icons">
+                      <fa :icon="['fas', 'arrow-right']" class="icon-1"></fa>
+                    </span>
                     <span>{{ $t('services.items.readMore') }}</span>
                   </a>
                 </div>
@@ -344,7 +393,9 @@
                   <div class="accordion custom-accordion" id="accordionPanelsStayOpenExample">
                     <div class="accordion-item">
                       <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                          aria-controls="panelsStayOpen-collapseOne">
                           {{ $t('faq.items.q1.question') }}
                         </button>
                       </h2>
@@ -354,7 +405,9 @@
                     </div>
                     <div class="accordion-item">
                       <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                          aria-controls="panelsStayOpen-collapseTwo">
                           {{ $t('faq.items.q2.question') }}
                         </button>
                       </h2>
@@ -364,7 +417,9 @@
                     </div>
                     <div class="accordion-item">
                       <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                          aria-controls="panelsStayOpen-collapseThree">
                           {{ $t('faq.items.q3.question') }}
                         </button>
                       </h2>
@@ -374,7 +429,9 @@
                     </div>
                     <div class="accordion-item">
                       <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                          aria-controls="panelsStayOpen-collapseFour">
                           {{ $t('faq.items.q4.question') }}
                         </button>
                       </h2>
@@ -384,7 +441,9 @@
                     </div>
                     <div class="accordion-item">
                       <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                          aria-controls="panelsStayOpen-collapseFive">
                           {{ $t('faq.items.q5.question') }}
                         </button>
                       </h2>
@@ -1749,6 +1808,9 @@ h6 {
 }
 
 .footer ul li {
+  font-size: 16px;
+  color:#fff !important;
+  font-weight: 600;
   padding: 0;
   margin: 0 0 10px 0;
 }
