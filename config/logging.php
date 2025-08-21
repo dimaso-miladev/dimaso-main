@@ -37,7 +37,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['single', 'telegram'],
             'ignore_exceptions' => false,
         ],
 
@@ -98,6 +98,12 @@ return [
 
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
+        ],
+
+        'telegram' => [
+            'driver' => 'custom',
+            'via' => App\Logging\TelegramLoggerFactory::class,
+            'level' => 'error', // Chỉ gửi log từ cấp độ 'error' trở lên
         ],
     ],
 
