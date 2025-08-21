@@ -48,7 +48,6 @@ class User extends Authenticatable implements JWTSubject
         'user_email',
         'user_url',
         'display_name',
-        'user_status',
     ];
 
     /**
@@ -95,7 +94,15 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return string
+     */
+    public function getEmailForVerification()
+    {
+        return $this->user_email;
+    }
+
+    /**
      *
      * @return mixed
      */
@@ -105,7 +112,6 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * Return a key value array, containing any custom claims to be added to the JWT.
      *
      * @return array
      */
@@ -115,7 +121,6 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * Send the password reset notification.
      *
      * @param  string  $token
      * @return void
@@ -126,12 +131,32 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * Send the email verification notification.
+     * Gửi thông báo xác thực email.
      *
      * @return void
      */
     public function sendEmailVerificationNotification()
     {
         $this->notify(new VerifyEmail);
+    }
+
+    /**
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function usermeta()
+    {
+        return $this->hasMany(UserMeta::class, 'user_id', 'ID');
+    }
+
+    /**
+     *
+     * @param string $key
+     * @return mixed|null
+     */
+    public function getMetaValue(string $key)
+    {
+        $meta = $this->usermeta()->where('meta_key', $key)->first();
+        return $meta ? $meta->meta_value : null;
     }
 }

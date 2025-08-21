@@ -3,12 +3,12 @@
     <div class="col-lg-7 m-auto">
       <card :title="$t('login')">
         <form @submit.prevent="login" @keydown="form.onKeydown($event)">
-          <!-- user_email -->
+          <!-- username -->
           <div class="mb-3 row">
             <label class="col-md-3 col-form-label text-md-end">{{ $t('email') }}</label>
             <div class="col-md-7">
-              <input v-model="form.user_email" :class="{ 'is-invalid': form.errors.has('user_email') }" class="form-control" type="user_email" name="user_email">
-              <has-error :form="form" field="user_email" />
+              <input v-model="form.user_login" :class="{ 'is-invalid': form.errors.has('user_login') }" class="form-control" type="text" name="user_login">
+              <has-error :form="form" field="user_login" />
             </div>
           </div>
 
@@ -16,8 +16,8 @@
           <div class="mb-3 row">
             <label class="col-md-3 col-form-label text-md-end">{{ $t('password') }}</label>
             <div class="col-md-7">
-              <input v-model="form.password" :class="{ 'is-invalid': form.errors.has('password') }" class="form-control" type="password" name="password">
-              <has-error :form="form" field="password" />
+              <input v-model="form.user_pass" :class="{ 'is-invalid': form.errors.has('user_pass') }" class="form-control" type="password" name="user_pass">
+              <has-error :form="form" field="user_pass" />
             </div>
           </div>
 
@@ -29,9 +29,9 @@
                 {{ $t('remember_me') }}
               </checkbox>
 
-              <router-link :to="{ name: 'password.request' }" class="small ms-auto my-auto">
+              <!-- <router-link :to="{ name: 'password.request' }" class="small ms-auto my-auto">
                 {{ $t('forgot_password') }}
-              </router-link>
+              </router-link> -->
             </div>
           </div>
 
@@ -70,28 +70,26 @@ export default {
 
   data: () => ({
     form: new Form({
-      user_email: '',
-      password: ''
+      user_login: '',
+      user_pass: ''
     }),
     remember: false
   }),
 
   methods: {
     async login () {
-      // Submit the form.
-      const { data } = await this.form.post('/api/login')
+      try {
+        const { data } = await this.form.post('/api/login')
+        await this.$store.dispatch('auth/saveToken', {
+          token: data.access_token,
+          remember: this.remember
+        })
 
-      // Save the token.
-      this.$store.dispatch('auth/saveToken', {
-        token: data.token,
-        remember: this.remember
-      })
+        await this.$store.dispatch('auth/fetchUser')
 
-      // Fetch the user.
-      await this.$store.dispatch('auth/fetchUser')
-
-      // Redirect home.
-      this.redirect()
+        this.redirect()
+      } catch (e) {
+      }
     },
 
     redirect () {
@@ -99,11 +97,11 @@ export default {
 
       if (intendedUrl) {
         Cookies.remove('intended_url')
-        this.$router.push({ path: intendedUrl })
+        this.$router.push({ path: intendedUrl }).catch(() => {})
       } else {
-        this.$router.push({ name: 'home' })
+        this.$router.push({ name: 'home' }).catch(() => {})
       }
     }
-  }
+  },
 }
 </script>

@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class OAuthProvider extends Model
 {
+    use HasFactory; // Thêm trait này để hỗ trợ Model Factories
+
     /**
      * The table associated with the model.
      *
@@ -14,26 +17,28 @@ class OAuthProvider extends Model
     protected $table = 'oauth_providers';
 
     /**
-     * The attributes that aren't mass assignable.
      *
-     * @var array
+     * @var array<int, string>
      */
-    protected $guarded = ['id'];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'access_token', 'refresh_token',
+    protected $fillable = [
+        'user_id',
+        'provider',
+        'provider_user_id',
+        'access_token',
+        'refresh_token',
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     *
+     * @var array<int, string>
      */
+    protected $hidden = [
+        'access_token',
+        'refresh_token',
+    ];
+
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'ID');
     }
 }

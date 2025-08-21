@@ -30,9 +30,6 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::patch('settings/profile', [ProfileController::class, 'update']);
     Route::patch('settings/password', [PasswordController::class, 'update']);
-    //Upload Photo
-    Route::post('photos/upload', [PhotoController::class, 'upload']);
-    Route::post('/photos/save-paths', [PhotoController::class, 'savePaths']);
 
 });
 
