@@ -176,5 +176,6 @@ composer install
 # Install NPM packages (frontend)
 npm install
 ```
+cmd_connect_mysql_host: mysql -h IP_Hosting -u username -p -P 3306 database_name
 
 

@@ -4,70 +4,55 @@ namespace App\Http\Controllers\Auth;
 
 use App\Exceptions\VerifyEmailException;
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    use AuthenticatesUsers;
 
     /**
-     * Create a new controller instance.
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('auth:api', ['except' => ['login']]);
     }
 
     /**
-     * Attempt to log the user into the application.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
-    protected function attemptLogin(Request $request): bool
+    public function login(Request $request)
     {
-        $token = $this->guard()->attempt($this->credentials($request));
-
-        if (! $token) {
-            return false;
-        }
-
-        $user = $this->guard()->user();
-        if ($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()) {
-            return false;
-        }
-
-        $this->guard()->setToken($token);
-
-        return true;
-    }
-
-    /**
-     * Send the response after the user was authenticated.
-     */
-    protected function sendLoginResponse(Request $request)
-    {
-        $this->clearLoginAttempts($request);
-
-        $token = (string) $this->guard()->getToken();
-        $expiration = $this->guard()->getPayload()->get('exp');
-
-        return response()->json([
-            'token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => $expiration - time(),
+        $validate = $request->validate([
+            $this->username() => 'required|string',
+            'user_pass' => 'required|string',
         ]);
-    }
 
-    /**
-     * Get the failed login response instance.
-     */
-    protected function sendFailedLoginResponse(Request $request)
-    {
-        $user = $this->guard()->user();
+        $user = User::where($this->username(), $validate[$this->username()])->first();
 
-        if ($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()) {
-            throw VerifyEmailException::forUser($user);
+        if ($user) {
+            $passwordCorrect = false;
+            $plainPassword = $validate['user_pass'];
+            $dbHash = $user->user_pass;
+
+            if (strlen($dbHash) === 32 && ctype_xdigit($dbHash)) {
+                if (md5($plainPassword) === $dbHash) {
+                    $passwordCorrect = true;
+                }
+            } else {
+                $hasher = new PasswordHash(8, true);
+                if ($hasher->CheckPassword($plainPassword, $dbHash)) {
+                    $passwordCorrect = true;
+                }
+            }
+
+            if ($passwordCorrect) {
+                $token = auth('api')->login($user);
+                return $this->sendLoginResponse($token);
+            }
         }
 
         throw ValidationException::withMessages([
@@ -76,12 +61,37 @@ class LoginController extends Controller
     }
 
     /**
-     * Log the user out of the application.
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function logout(Request $request)
+    public function logout()
     {
-        $this->guard()->logout();
+        auth('api')->logout();
 
-        return response()->json(null, 204);
+        return response()->json(['message' => 'Successfully logged out']);
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function username(): string
+    {
+        return 'user_login';
+    }
+
+    /**
+     *
+     * @param string $token
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function sendLoginResponse(string $token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth('api')->factory()->getTTL() * 60, 
+            'user' => auth('api')->user()
+        ]);
     }
 }

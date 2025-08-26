@@ -6,7 +6,7 @@ export default [
   { path: '/', name: 'welcome', component: page('welcome.vue') },
 
    { path: '/about-us', name: 'about-page-url', component: page('about_us.vue') },
-  // { path: '/login', name: 'login', component: page('auth/login.vue') },
+  { path: '/login', name: 'login', component: page('auth/login.vue') },
   // { path: '/register', name: 'register', component: page('auth/register.vue') },
   // { path: '/password/reset', name: 'password.request', component: page('auth/password/email.vue') },
   // { path: '/password/reset/:token', name: 'password.reset', component: page('auth/password/reset.vue') },

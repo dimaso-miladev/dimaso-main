@@ -23,12 +23,16 @@ class TelegramService
      * @param string $message Support HTML
      * @return \Illuminate\Http\Client\Response
      */
-    public function sendMessage(string $message)
+    public function sendMessage(string $message): void
     {
-        return Http::post("{$this->baseUrl}/sendMessage", [
-            'chat_id' => $this->chatId,
-            'text' => $message,
-            'parse_mode' => 'HTML', 
-        ]);
+        try {
+            Http::post("{$this->baseUrl}/sendMessage", [
+                'chat_id' => $this->chatId,
+                'text' => $message,
+                'parse_mode' => 'HTML',
+            ]);
+        } catch (\Exception $e) {
+            Log::channel('single')->error('Could not send message to Telegram: ' . $e->getMessage());
+        }
     }
 }
