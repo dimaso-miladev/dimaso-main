@@ -48,8 +48,6 @@ class ContactController extends Controller
                 return response()->json(['message' => 'Failed to send message.'], 500);
             }
             
-            Log::info('Contact form submitted and sent to Telegram: ', $validatedData);
-
             return response()->json(['message' => 'success'], 200);
 
         } catch (\Exception $e) {
