@@ -43,10 +43,9 @@ class LoginController extends Controller
                     $passwordCorrect = true;
                 }
             } else {
-                $hasher = new PasswordHash(8, true);
-                if ($hasher->CheckPassword($plainPassword, $dbHash)) {
-                    $passwordCorrect = true;
-                }
+                throw ValidationException::withMessages([
+                    'user_pass' => [trans('auth.failed')],
+                ]);
             }
 
             if ($passwordCorrect) {
