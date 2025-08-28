@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Exceptions\VerifyEmailException;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
 
     /**
+     * Create a new controller instance.
      */
     public function __construct()
     {
@@ -19,6 +20,7 @@ class LoginController extends Controller
     }
 
     /**
+     * Handle a login request to the application.
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -26,29 +28,25 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        $validate = $request->validate([
+        $request->validate([
             $this->username() => 'required|string',
             'user_pass' => 'required|string',
         ]);
 
-        $user = User::where($this->username(), $validate[$this->username()])->first();
+        $user = User::where($this->username(), $request->input($this->username()))->first();
 
         if ($user) {
-            $passwordCorrect = false;
-            $plainPassword = $validate['user_pass'];
+            $plainPassword = $request->input('user_pass');
             $dbHash = $user->user_pass;
 
-            if (strlen($dbHash) === 32 && ctype_xdigit($dbHash)) {
-                if (md5($plainPassword) === $dbHash) {
-                    $passwordCorrect = true;
-                }
-            } else {
-                throw ValidationException::withMessages([
-                    'user_pass' => [trans('auth.failed')],
-                ]);
+            if (Hash::check($plainPassword, $dbHash)) {
+                $token = auth('api')->login($user);
+                return $this->sendLoginResponse($token);
             }
 
-            if ($passwordCorrect) {
+            if (strlen($dbHash) === 32 && ctype_xdigit($dbHash) && md5($plainPassword) === $dbHash) {
+                $user->user_pass = Hash::make($plainPassword);
+                $user->save();
                 $token = auth('api')->login($user);
                 return $this->sendLoginResponse($token);
             }
@@ -60,6 +58,7 @@ class LoginController extends Controller
     }
 
     /**
+     * Log the user out of the application.
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -71,6 +70,7 @@ class LoginController extends Controller
     }
 
     /**
+     * Get the login username to be used by the controller.
      *
      * @return string
      */
@@ -80,6 +80,7 @@ class LoginController extends Controller
     }
 
     /**
+     * Get the token array structure.
      *
      * @param string $token
      * @return \Illuminate\Http\JsonResponse
@@ -89,7 +90,7 @@ class LoginController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60, 
+            'expires_in' => auth('api')->factory()->getTTL() * 60,
             'user' => auth('api')->user()
         ]);
     }

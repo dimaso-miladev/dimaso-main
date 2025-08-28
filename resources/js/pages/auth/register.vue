@@ -1,57 +1,119 @@
 <template>
   <div class="row register-container">
     <div class="register-box">
-      <form @submit.prevent="register"> 
+      <!-- Thông báo verify email nếu cần -->
+      <div v-if="mustVerifyEmail" class="alert alert-success mb-4">
+        <fa :icon="['fa', 'envelope']" class="me-2" />
+        Vui lòng kiểm tra email của bạn để xác thực tài khoản.
+      </div>
+
+      <form @submit.prevent="register" v-else> 
         <div class="row mb-3">
           <div class="col-md-6">
-            <label for="first_name" class="form-label">Tên</label>
- 
-            <input type="text" class="form-control" id="first_name" placeholder="Nhập tên của bạn" required
+            <label for="first_name" class="form-label">Tên <span class="text-danger">*</span></label>
+            <input 
+              type="text" 
+              class="form-control" 
+              :class="{ 'is-invalid': form.errors.has('first_name') }"
+              id="first_name" 
+              placeholder="Nhập tên của bạn" 
+              required
               v-model="form.first_name">
+            <div v-if="form.errors.has('first_name')" class="invalid-feedback">
+              {{ form.errors.get('first_name') }}
+            </div>
           </div>
           <div class="col-md-6">
-            <label for="last_name" class="form-label">Họ</label>
-
-            <input type="text" class="form-control" id="last_name" placeholder="Nhập họ của bạn" required
+            <label for="last_name" class="form-label">Họ <span class="text-danger">*</span></label>
+            <input 
+              type="text" 
+              class="form-control" 
+              :class="{ 'is-invalid': form.errors.has('last_name') }"
+              id="last_name" 
+              placeholder="Nhập họ của bạn" 
+              required
               v-model="form.last_name">
+            <div v-if="form.errors.has('last_name')" class="invalid-feedback">
+              {{ form.errors.get('last_name') }}
+            </div>
           </div>
         </div>
         <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-
-          <input type="email" class="form-control" id="email" placeholder="Nhập địa chỉ email" required
+          <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+          <input 
+            type="email" 
+            class="form-control" 
+            :class="{ 'is-invalid': form.errors.has('email') }"
+            id="email" 
+            placeholder="Nhập địa chỉ email" 
+            required
             v-model="form.email">
+          <div v-if="form.errors.has('email')" class="invalid-feedback">
+            {{ form.errors.get('email') }}
+          </div>
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Mật khẩu</label>
+          <label for="password" class="form-label">Mật khẩu <span class="text-danger">*</span></label>
           <div class="input-group">
-            <input :type="showPassword ? 'text' : 'password'" class="form-control" id="password"
-              placeholder="Nhập mật khẩu của bạn" required v-model="form.password">
+            <input 
+              :type="showPassword ? 'text' : 'password'" 
+              class="form-control" 
+              :class="{ 'is-invalid': form.errors.has('password') }"
+              id="password"
+              placeholder="Nhập mật khẩu của bạn (tối thiểu 6 ký tự)" 
+              required 
+              minlength="6"
+              v-model="form.password">
             <span class="input-group-text password-toggle-btn" @click="togglePasswordVisibility">
               <fa :icon="['fa', showPassword ? 'eye-slash' : 'eye']" />
             </span>
+            <div v-if="form.errors.has('password')" class="invalid-feedback d-block">
+              {{ form.errors.get('password') }}
+            </div>
           </div>
         </div>
         <div class="mb-4">
-          <label for="confirmPassword" class="form-label">Xác nhận mật khẩu</label>
+          <label for="password_confirmation" class="form-label">Xác nhận mật khẩu <span class="text-danger">*</span></label>
           <div class="input-group">
-            <input :type="showConfirmPassword ? 'text' : 'password'" class="form-control" id="confirmPassword"
-              placeholder="Xác nhận lại mật khẩu" required v-model="form.password_confirmation">
-            <span class="input-group-text password-toggle-btn" id="toggleConfirmPassword"
-              @click="toggleConfirmPasswordVisibility">
+            <input 
+              :type="showConfirmPassword ? 'text' : 'password'" 
+              class="form-control" 
+              :class="{ 'is-invalid': form.errors.has('password_confirmation') }"
+              id="password_confirmation"
+              placeholder="Xác nhận lại mật khẩu" 
+              required 
+              v-model="form.password_confirmation">
+            <span class="input-group-text password-toggle-btn" @click="toggleConfirmPasswordVisibility">
               <fa :icon="['fa', showConfirmPassword ? 'eye-slash' : 'eye']" />
             </span>
+            <div v-if="form.errors.has('password_confirmation')" class="invalid-feedback d-block">
+              {{ form.errors.get('password_confirmation') }}
+            </div>
           </div>
         </div>
         <div class="d-grid mb-3">
-          <button type="submit" class="btn btn-primary">Đăng Ký</button>
+          <button type="submit" class="btn btn-primary" :disabled="form.busy">
+            <span v-if="form.busy">
+              <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Đang xử lý...
+            </span>
+            <span v-else>Đăng Ký</span>
+          </button>
         </div>
         <div class="text-muted-separator">
           Hoặc
         </div>
-        <div class="d-grid">
+        <div class="d-grid mb-3">
           <!-- Google Register Button -->
           <login-with-google />
+        </div>
+        <div class="text-center">
+          <p class="text-muted">
+            Đã có tài khoản? 
+            <router-link :to="{ name: 'login' }" class="text-decoration-none">
+              Đăng nhập ngay
+            </router-link>
+          </p>
         </div>
       </form>
     </div>
@@ -70,7 +132,7 @@ export default {
   middleware: 'guest',
 
   metaInfo () {
-    return { title: this.$t('register') }
+    return { title: 'Đăng ký tài khoản' }
   },
 
   data: () => ({
@@ -90,36 +152,73 @@ export default {
   methods: {
     async register () {
       try {
-        console.log(this.form);
+        // Clear previous errors
+        this.form.errors.clear()
+        
+        // Submit registration
         const { data } = await this.form.post('/api/register')
 
-        if (data.status) {
+        // Check if email verification is required
+        if (data.status && data.status === 'verification.sent') {
           this.mustVerifyEmail = true
+          this.$toast.success('Đăng ký thành công! Vui lòng kiểm tra email để xác thực tài khoản.')
+        } else if (data.success && data.data) {
+          // Registration successful, auto login
+          await this.autoLogin()
+        }
+      } catch (error) {
+        // Handle specific validation errors
+        if (error.response && error.response.status === 422) {
+          this.$toast.error('Vui lòng kiểm tra lại thông tin đăng ký.')
         } else {
-          const { data: loginData } = await this.form.post('/api/login')
-          this.$store.dispatch('auth/saveToken', { token: loginData.token })
-          await this.$store.dispatch('auth/updateUser', { user: loginData.user })
+          this.$toast.error('Đã xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại.')
+          console.error('Lỗi đăng ký:', error)
+        }
+      }
+    },
+
+    async autoLogin() {
+      try {
+        // Auto login after successful registration
+        const loginForm = new Form({
+          email: this.form.email,
+          password: this.form.password
+        })
+        
+        const { data: loginData } = await loginForm.post('/api/login')
+        
+        // Save token and user data
+        if (loginData.token) {
+          await this.$store.dispatch('auth/saveToken', { token: loginData.token })
+          await this.$store.dispatch('auth/fetchUser')
+          
+          this.$toast.success('Đăng ký thành công! Chào mừng bạn.')
           this.$router.push({ name: 'home' })
         }
       } catch (error) {
-        console.error('Lỗi đăng ký:', error);
+        // If auto-login fails, redirect to login page
+        this.$toast.info('Đăng ký thành công! Vui lòng đăng nhập.')
+        this.$router.push({ name: 'login' })
       }
     },
 
     togglePasswordVisibility () {
-      this.showPassword = !this.showPassword;
+      this.showPassword = !this.showPassword
     },
 
     toggleConfirmPasswordVisibility () {
-      this.showConfirmPassword = !this.showConfirmPassword;
+      this.showConfirmPassword = !this.showConfirmPassword
     }
   }
 }
 </script>
+
 <style scoped>
 .register-container {
   display: flex;
   justify-content: center;
+  min-height: calc(100vh - 200px);
+  align-items: center;
 }
 
 .register-box {
@@ -147,11 +246,18 @@ export default {
   border-radius: 8px;
   padding: 12px 15px;
   border: 1px solid #ddd;
+  transition: border-color 0.2s ease-in-out;
 }
 
 .form-control:focus {
   border-color: #86b7fe;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + .75rem);
+  background-image: none;
 }
 
 .input-group-text.password-toggle-btn {
@@ -171,6 +277,10 @@ export default {
   color: #343a40;
 }
 
+.input-group .is-invalid ~ .input-group-text {
+  border-color: #dc3545;
+}
+
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
@@ -178,12 +288,18 @@ export default {
   padding: 12px 0;
   font-size: 1.1rem;
   font-weight: 600;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   background-color: #0056b3;
   border-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
 
 .text-muted-separator {
@@ -207,5 +323,27 @@ export default {
 
 .text-muted-separator:not(:empty)::after {
   margin-left: .5em;
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: .25rem;
+  font-size: .875em;
+  color: #dc3545;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.2em;
+}
+
+.alert {
+  border-radius: 8px;
+  padding: 15px 20px;
+}
+
+.text-danger {
+  color: #dc3545;
 }
 </style>

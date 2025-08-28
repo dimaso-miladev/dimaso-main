@@ -9,7 +9,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash; 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str; 
 use App\Http\Traits\ApiResponse;
 
 class RegisterController extends Controller
@@ -38,7 +40,6 @@ class RegisterController extends Controller
         $response = [
             'user_login' => $user->user_login,
             'display_name' => $user->display_name,
-            'user_email' => $user->user_email,
             'first_name' => $user->getMetaValue('first_name'),
             'last_name' => $user->getMetaValue('last_name'),
         ];
@@ -67,26 +68,25 @@ class RegisterController extends Controller
         return DB::transaction(function () use ($data) {
 
             $baseUsername = explode('@', $data['email'])[0];
-            $username = $this->generateUniqueUsername($baseUsername);
-            $displayName    = $data['first_name'] . ' ' . $data['last_name'];
-            $userNicename   = strtolower(str_replace(' ', '-', $username));
-            $hashedPassword = md5($data['password']);
+            $username     = $this->generateUniqueUsername($baseUsername);
+            $displayName  = $data['first_name'] . ' ' . $data['last_name'];
+            $userNicename = $this->generateUniqueNicename($displayName);
 
             $user = User::create([
-                'user_login' => $username,
-                'user_pass' => $hashedPassword,  
-                'user_email' => $data['email'],
-                'user_nicename' => $userNicename,
-                'user_url' => '',
-                'display_name' => $displayName,
+                'user_login'      => $username,
+                'user_pass'       => Hash::make($data['password']),   // TỐI ƯU: Sử dụng Hash::make()
+                'user_email'      => $data['email'],
+                'user_nicename'   => $userNicename,                   // TỐI ƯU: Sử dụng nicename thân thiện
+                'user_url'        => '',
+                'display_name'    => $displayName,
                 'user_registered' => now(),
-                'user_status' => 0,
+                'user_status'     => 0,
             ]);
 
             $this->createUserMeta($user->ID, [
                 'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'nickname' => $username,
+                'last_name'  => $data['last_name'],
+                'nickname'   => $username,
             ]);
 
             return $user;
@@ -94,7 +94,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Generate unique username
+     * Generate unique and user-friendly username.
      */
     protected function generateUniqueUsername(string $baseUsername): string
     {
@@ -102,11 +102,28 @@ class RegisterController extends Controller
         $counter = 1;
 
         while (User::where('user_login', $username)->exists()) {
-            $username = $baseUsername . $counter;
             $counter++;
+            $username = $baseUsername . $counter;
         }
 
         return $username;
+    }
+
+    /**
+     * Generate unique and URL-friendly nicename (slug).
+     */
+    protected function generateUniqueNicename(string $displayName): string
+    {
+        $nicename = Str::slug($displayName, '-');
+        $baseNicename = $nicename;
+        $counter = 1;
+
+        while (User::where('user_nicename', $nicename)->exists()) {
+            $counter++;
+            $nicename = $baseNicename . '-' . $counter;
+        }
+
+        return $nicename;
     }
 
     /**
