@@ -33,7 +33,7 @@ class ContactController extends Controller
             return response()->json(['errors' => $e->errors()], 422);
         }
 
-        $message = "<b>===Thông báo liên hệ =====</b>\n\n"
+        $message = "<b>===Thông báo liên hệ===</b>\n\n"
                  . "Khách hàng: " . htmlspecialchars($validatedData['your_name']) . "\n"
                  . "Email: " . htmlspecialchars($validatedData['your_mail']) . "\n"
                  . "Số điện thoại: " . htmlspecialchars($validatedData['your_phone']) . "\n\n"
@@ -42,14 +42,7 @@ class ContactController extends Controller
 
         try {
             $response = $this->telegramService->sendMessage($message);
-
-            if ($response->failed()) {
-                Log::error('Telegram API Error: ' . $response->body());
-                return response()->json(['message' => 'Failed to send message.'], 500);
-            }
-            
             return response()->json(['message' => 'success'], 200);
-
         } catch (\Exception $e) {
             Log::error('Error sending message to Telegram: ' . $e->getMessage());
             return response()->json(['message' => 'An unexpected error occurred.'], 500);
